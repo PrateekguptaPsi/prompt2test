@@ -113,8 +113,9 @@ asserts rejection. It has already surfaced 3 real defects (see below).
 The three case-linked API tests are **red on purpose** — a failure is a documented
 application defect (tracked in Jira), not a test to "fix". Full evidence with
 `call_kw` repro payloads: `06_bugs/bug_report.html` and
-`06_bugs/confirmed_defects.json`. Release verdict: **No-Go**
-(`08_verdict/release_readiness.md`).
+`06_bugs/confirmed_defects.json`. Jira board screenshots (durable proof after the
+hackathon token expires): [`06_bugs/evidence/`](06_bugs/evidence/). Release
+verdict: **No-Go** (`08_verdict/release_readiness.md`).
 
 ---
 
