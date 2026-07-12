@@ -154,9 +154,26 @@ completes the 38-test FE suite in ~2 minutes. Tune with `PW_WORKERS` (set
 | JUnit XML | `05_automation/reports/junit/results.xml` |
 
 ### CI
-`.github/workflows/qa-tests.yml` runs on push/PR/dispatch: type-check → seed →
-full suite → publish the executive summary to the job page → upload all reports.
-Set repo secrets `ODOO_URL`, `ODOO_DB`, `ODOO_USER`, `ODOO_PASSWORD`.
+`.github/workflows/qa-tests.yml` runs on push/PR/dispatch as two jobs:
+
+1. **Build & type-check** — always runs, no credentials needed. Installs
+   dependencies and type-checks the whole framework. This is the gate that
+   proves the code is valid, and it stays green in any clone/fork.
+2. **UI + API test suite (live)** — runs only when the four `ODOO_*` secrets are
+   configured; otherwise it prints a "not configured" note and stays green
+   rather than hard-failing. When it runs, it seeds data, executes all cases,
+   publishes the executive summary to the job page, and uploads all reports.
+
+**To run the live suite in CI**, add repository secrets under
+*Settings → Secrets and variables → Actions*: `ODOO_URL`, `ODOO_DB`,
+`ODOO_USER`, `ODOO_PASSWORD` (and optionally `ODOO_SECONDARY_USER` /
+`ODOO_SECONDARY_PASSWORD` for the cross-user isolation check).
+
+> The live job uses `continue-on-error` on the test step **by design**: the
+> suite is meant to leave a few red tests when the app has real defects (the 3
+> confirmed server-side defects). Those are findings filed to Jira, reported in
+> the executive summary — not a broken pipeline. Locally, reproduce the exact
+> run with `npm run test:full`.
 
 ---
 
