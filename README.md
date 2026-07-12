@@ -142,6 +142,81 @@ npm run test:api          # API + boundary bug hunter only
 npm run test:report       # open the Playwright HTML report
 ```
 
+### Running the test suite (new user quickstart)
+
+#### Prerequisites
+Before running the test suite, ensure the following are installed:
+- Node.js 20 or later
+- Git
+- Visual Studio Code (or another code editor)
+
+Create a local `.env` file from `.env.example` and add the required Odoo credentials.
+Never commit `.env` to source control.
+
+#### Clone and set up the project
+```bash
+git clone https://github.com/PrateekguptaPsi/prompt2test.git
+cd prompt2test
+npm install
+npx playwright install
+```
+
+#### Validate TypeScript compilation
+```bash
+npx tsc --noEmit
+npx tsc --noEmit -p 05_automation/tsconfig.json
+```
+Both commands should complete without compilation errors.
+
+#### Seed synthetic test data
+```bash
+npm run seed
+```
+
+#### Run the complete test suite
+```bash
+npm run test:all
+```
+
+#### Open the executive summary report
+On Windows:
+```bash
+start 05_automation/reports/summary/summary.html
+```
+
+If the browser shows `ERR_ACCESS_DENIED`, serve the report locally:
+```bash
+npx http-server 05_automation/reports/summary -p 8080 -c-1
+```
+
+Then open:
+```text
+http://localhost:8080/summary.html
+```
+
+#### Open the detailed Playwright report
+```bash
+npx playwright show-report 05_automation/reports/html
+```
+
+#### Complete command sequence
+```bash
+git clone https://github.com/PrateekguptaPsi/prompt2test.git
+cd prompt2test
+npm install
+npx playwright install
+npx tsc --noEmit
+npx tsc --noEmit -p 05_automation/tsconfig.json
+npm run seed
+npm run test:all
+```
+
+After test execution:
+```bash
+start 05_automation/reports/summary/summary.html
+npx playwright show-report 05_automation/reports/html
+```
+
 Execution runs with **3 parallel workers** by default (`fullyParallel`), which
 completes the 38-test FE suite in ~2 minutes. Tune with `PW_WORKERS` (set
 `PW_WORKERS=1` if the shared server becomes unstable under load).
