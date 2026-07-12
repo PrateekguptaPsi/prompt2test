@@ -1,0 +1,963 @@
+<testsuites id="" name="" tests="44" failures="3" skipped="2" errors="0" time="340.513863">
+<testsuite name="auth.setup.ts" timestamp="2026-07-11T18:52:08.175Z" hostname="setup" tests="1" failures="0" skipped="0" time="1.52" errors="0">
+<testcase name="authenticate via JSON-RPC and persist storageState" classname="auth.setup.ts" time="1.52">
+</testcase>
+</testsuite>
+<testsuite name="api-business-rules.spec.ts" timestamp="2026-07-11T18:52:08.175Z" hostname="chromium" tests="5" failures="3" skipped="2" time="16.435" errors="0">
+<testcase name="Step 8 API business rules via Odoo JSON-RPC (E2E=No) › @api @positive validates billing total equals billing line subtotals" classname="api-business-rules.spec.ts">
+<properties>
+<property name="TestCaseID" value="TC-BILLING-POS-001">
+</property>
+<property name="RequirementID" value="REQ-BILLING-1">
+</property>
+<property name="ScenarioID" value="SCN-BIL-ALT-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="skip" value="No billing records with billing_line_ids found; cannot assert billing total consistency.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Step 8 API business rules via Odoo JSON-RPC (E2E=No) › @api @negative blocks cross-user record access" classname="api-business-rules.spec.ts">
+<properties>
+<property name="TestCaseID" value="TC-PATIENTS-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-PATIENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-PAT-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="skip" value="Set ODOO_SECONDARY_USER and ODOO_SECONDARY_PASSWORD to execute cross-user isolation assertion.">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Step 8 boundary bug hunter (InvalidOrBoundaryInput, E2E=No) › @api @negative TC-PRESCRIPTIONS-NEG-002 | prescription line quantity must not be zero or negative" classname="api-business-rules.spec.ts" time="5.483">
+<properties>
+<property name="TestCaseID" value="TC-PRESCRIPTIONS-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-PRESCRIPTIONS-1">
+</property>
+<property name="ScenarioID" value="SCN-RX-CORE-01">
+</property>
+<property name="Category" value="InvalidOrBoundaryInput">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium\error-context.md]]
+
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium-retry1\error-context.md]]
+
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium-retry1\trace.zip]]
+]]>
+</system-out>
+<failure message="APP DEFECT: healthplix.prescription.line accepted invalid quantity (prescription line quantity must not be zero or negative). File in 06_bugs/Jira." type="expect.toBeTruthy">
+<![CDATA[  [chromium] › api-business-rules.spec.ts:276:9 › Step 8 boundary bug hunter (InvalidOrBoundaryInput, E2E=No) › @api @negative TC-PRESCRIPTIONS-NEG-002 | prescription line quantity must not be zero or negative 
+
+    Error: APP DEFECT: healthplix.prescription.line accepted invalid quantity (prescription line quantity must not be zero or negative). File in 06_bugs/Jira.
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+      313 |           rejected,
+      314 |           `APP DEFECT: ${built.model} accepted invalid ${rule.invalidField} (${rule.title}). File in 06_bugs/Jira.`
+    > 315 |         ).toBeTruthy();
+          |           ^
+      316 |       } finally {
+      317 |         if (createdId) await client.callKw(built.model, "unlink", [[createdId]]).catch(() => undefined);
+      318 |         await cleanupParents(client, built.cleanup);
+        at D:\Prompt2Test\05_automation\tests\api-business-rules.spec.ts:315:11
+
+    Error Context: ..\test-results\api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium\error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: APP DEFECT: healthplix.prescription.line accepted invalid quantity (prescription line quantity must not be zero or negative). File in 06_bugs/Jira.
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+      313 |           rejected,
+      314 |           `APP DEFECT: ${built.model} accepted invalid ${rule.invalidField} (${rule.title}). File in 06_bugs/Jira.`
+    > 315 |         ).toBeTruthy();
+          |           ^
+      316 |       } finally {
+      317 |         if (createdId) await client.callKw(built.model, "unlink", [[createdId]]).catch(() => undefined);
+      318 |         await cleanupParents(client, built.cleanup);
+        at D:\Prompt2Test\05_automation\tests\api-business-rules.spec.ts:315:11
+
+    Error Context: ..\test-results\api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="Step 8 boundary bug hunter (InvalidOrBoundaryInput, E2E=No) › @api @negative TC-BILLING-NEG-002 | billing line unit price must not be negative" classname="api-business-rules.spec.ts" time="5.258">
+<properties>
+<property name="TestCaseID" value="TC-BILLING-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-BILLING-1">
+</property>
+<property name="ScenarioID" value="SCN-BIL-ALT-01">
+</property>
+<property name="Category" value="InvalidOrBoundaryInput">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium\error-context.md]]
+
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium-retry1\error-context.md]]
+
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium-retry1\trace.zip]]
+]]>
+</system-out>
+<failure message="APP DEFECT: healthplix.billing.line accepted invalid price (billing line unit price must not be negative). File in 06_bugs/Jira." type="expect.toBeTruthy">
+<![CDATA[  [chromium] › api-business-rules.spec.ts:276:9 › Step 8 boundary bug hunter (InvalidOrBoundaryInput, E2E=No) › @api @negative TC-BILLING-NEG-002 | billing line unit price must not be negative 
+
+    Error: APP DEFECT: healthplix.billing.line accepted invalid price (billing line unit price must not be negative). File in 06_bugs/Jira.
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+      313 |           rejected,
+      314 |           `APP DEFECT: ${built.model} accepted invalid ${rule.invalidField} (${rule.title}). File in 06_bugs/Jira.`
+    > 315 |         ).toBeTruthy();
+          |           ^
+      316 |       } finally {
+      317 |         if (createdId) await client.callKw(built.model, "unlink", [[createdId]]).catch(() => undefined);
+      318 |         await cleanupParents(client, built.cleanup);
+        at D:\Prompt2Test\05_automation\tests\api-business-rules.spec.ts:315:11
+
+    Error Context: ..\test-results\api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium\error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: APP DEFECT: healthplix.billing.line accepted invalid price (billing line unit price must not be negative). File in 06_bugs/Jira.
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+      313 |           rejected,
+      314 |           `APP DEFECT: ${built.model} accepted invalid ${rule.invalidField} (${rule.title}). File in 06_bugs/Jira.`
+    > 315 |         ).toBeTruthy();
+          |           ^
+      316 |       } finally {
+      317 |         if (createdId) await client.callKw(built.model, "unlink", [[createdId]]).catch(() => undefined);
+      318 |         await cleanupParents(client, built.cleanup);
+        at D:\Prompt2Test\05_automation\tests\api-business-rules.spec.ts:315:11
+
+    Error Context: ..\test-results\api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="Step 8 boundary bug hunter (InvalidOrBoundaryInput, E2E=No) › @api @negative TC-DOCTORS-NEG-002 | doctor experience must not be negative" classname="api-business-rules.spec.ts" time="3.909">
+<properties>
+<property name="TestCaseID" value="TC-DOCTORS-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-DOCTORS-1">
+</property>
+<property name="ScenarioID" value="SCN-DOC-CORE-01">
+</property>
+<property name="Category" value="InvalidOrBoundaryInput">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium\error-context.md]]
+
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium-retry1\error-context.md]]
+
+[[ATTACHMENT|..\..\test-results\api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium-retry1\trace.zip]]
+]]>
+</system-out>
+<failure message="APP DEFECT: healthplix.doctor accepted invalid experience (doctor experience must not be negative). File in 06_bugs/Jira." type="expect.toBeTruthy">
+<![CDATA[  [chromium] › api-business-rules.spec.ts:276:9 › Step 8 boundary bug hunter (InvalidOrBoundaryInput, E2E=No) › @api @negative TC-DOCTORS-NEG-002 | doctor experience must not be negative 
+
+    Error: APP DEFECT: healthplix.doctor accepted invalid experience (doctor experience must not be negative). File in 06_bugs/Jira.
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+      313 |           rejected,
+      314 |           `APP DEFECT: ${built.model} accepted invalid ${rule.invalidField} (${rule.title}). File in 06_bugs/Jira.`
+    > 315 |         ).toBeTruthy();
+          |           ^
+      316 |       } finally {
+      317 |         if (createdId) await client.callKw(built.model, "unlink", [[createdId]]).catch(() => undefined);
+      318 |         await cleanupParents(client, built.cleanup);
+        at D:\Prompt2Test\05_automation\tests\api-business-rules.spec.ts:315:11
+
+    Error Context: ..\test-results\api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium\error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: APP DEFECT: healthplix.doctor accepted invalid experience (doctor experience must not be negative). File in 06_bugs/Jira.
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+      313 |           rejected,
+      314 |           `APP DEFECT: ${built.model} accepted invalid ${rule.invalidField} (${rule.title}). File in 06_bugs/Jira.`
+    > 315 |         ).toBeTruthy();
+          |           ^
+      316 |       } finally {
+      317 |         if (createdId) await client.callKw(built.model, "unlink", [[createdId]]).catch(() => undefined);
+      318 |         await cleanupParents(client, built.cleanup);
+        at D:\Prompt2Test\05_automation\tests\api-business-rules.spec.ts:315:11
+
+    Error Context: ..\test-results\api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="high-priority-cases.spec.ts" timestamp="2026-07-11T18:52:08.175Z" hostname="chromium" tests="38" failures="0" skipped="0" time="316.531" errors="0">
+<testcase name="Coverage contract: scenarios and cases › @regression each case maps to a valid scenario and linked requirement" classname="high-priority-cases.spec.ts" time="0.039">
+</testcase>
+<testcase name="Coverage contract: scenarios and cases › @regression each scenario has at least one mapped case" classname="high-priority-cases.spec.ts" time="0.008">
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-PATIENTS-NEG-001 | Patients | Block patient creation when required name is missing" classname="high-priority-cases.spec.ts" time="19.773">
+<properties>
+<property name="TestCaseID" value="TC-PATIENTS-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-PATIENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-PAT-CORE-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-9000000001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-PATIENTS-NEG-002 | Patients | Prevent duplicate identity document for different patient records" classname="high-priority-cases.spec.ts" time="6.676">
+<properties>
+<property name="TestCaseID" value="TC-PATIENTS-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-PATIENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-PAT-CORE-01">
+</property>
+<property name="Category" value="CrossRecordOrAccessIsolation">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-ID-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-PATIENTS-NEG-003 | Patients | Prevent unauthorized access to another patient profile" classname="high-priority-cases.spec.ts" time="7.198">
+<properties>
+<property name="TestCaseID" value="TC-PATIENTS-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-PATIENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-PAT-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-PAT-LOCKED-01: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @positive TC-PATIENTS-POS-001 | Patients | Create patient with valid demographic and identity data" classname="high-priority-cases.spec.ts" time="9.748">
+<properties>
+<property name="TestCaseID" value="TC-PATIENTS-POS-001">
+</property>
+<property name="RequirementID" value="REQ-PATIENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-PAT-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-ID-101: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-DOCTORS-NEG-001 | Doctors | Block doctor profile creation when required name is missing" classname="high-priority-cases.spec.ts" time="8.956">
+<properties>
+<property name="TestCaseID" value="TC-DOCTORS-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-DOCTORS-1">
+</property>
+<property name="ScenarioID" value="SCN-DOC-CORE-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-DOCTORS-NEG-002 | Doctors | Reject invalid boundary value for experience years" classname="high-priority-cases.spec.ts" time="8.443">
+<properties>
+<property name="TestCaseID" value="TC-DOCTORS-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-DOCTORS-1">
+</property>
+<property name="ScenarioID" value="SCN-DOC-CORE-01">
+</property>
+<property name="Category" value="InvalidOrBoundaryInput">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-DOCTORS-NEG-003 | Doctors | Prevent assignment of inactive doctor in appointment flow" classname="high-priority-cases.spec.ts" time="7.874">
+<properties>
+<property name="TestCaseID" value="TC-DOCTORS-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-DOCTORS-1">
+</property>
+<property name="ScenarioID" value="SCN-DOC-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @positive TC-DOCTORS-POS-001 | Doctors | Create active doctor profile for downstream assignment" classname="high-priority-cases.spec.ts" time="6.979">
+<properties>
+<property name="TestCaseID" value="TC-DOCTORS-POS-001">
+</property>
+<property name="RequirementID" value="REQ-DOCTORS-1">
+</property>
+<property name="ScenarioID" value="SCN-DOC-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-APPOINTMENTS-NEG-001 | Appointments | Block appointment save when required doctor is missing" classname="high-priority-cases.spec.ts" time="8.398">
+<properties>
+<property name="TestCaseID" value="TC-APPOINTMENTS-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-APPOINTMENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-APT-ALT-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-PAT-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-APPOINTMENTS-NEG-002 | Appointments | Block appointment save when required appointment date is missing" classname="high-priority-cases.spec.ts" time="9.143">
+<properties>
+<property name="TestCaseID" value="TC-APPOINTMENTS-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-APPOINTMENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-APT-ALT-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-PAT-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-APPOINTMENTS-NEG-003 | Appointments | Prevent double-booking for same doctor and time slot" classname="high-priority-cases.spec.ts" time="6.388">
+<properties>
+<property name="TestCaseID" value="TC-APPOINTMENTS-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-APPOINTMENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-APT-ALT-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-DOC-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @positive TC-APPOINTMENTS-POS-001 | Appointments | Create appointment with valid patient doctor and date" classname="high-priority-cases.spec.ts" time="7.933">
+<properties>
+<property name="TestCaseID" value="TC-APPOINTMENTS-POS-001">
+</property>
+<property name="RequirementID" value="REQ-APPOINTMENTS-1">
+</property>
+<property name="ScenarioID" value="SCN-APT-ALT-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-PAT-002: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-PRESCRIPTIONS-NEG-001 | Prescriptions | Block prescription save when required patient is missing" classname="high-priority-cases.spec.ts" time="9.76">
+<properties>
+<property name="TestCaseID" value="TC-PRESCRIPTIONS-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-PRESCRIPTIONS-1">
+</property>
+<property name="ScenarioID" value="SCN-RX-CORE-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-RX-NEG-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-PRESCRIPTIONS-NEG-002 | Prescriptions | Reject prescription line with zero or negative quantity" classname="high-priority-cases.spec.ts" time="8.639">
+<properties>
+<property name="TestCaseID" value="TC-PRESCRIPTIONS-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-PRESCRIPTIONS-1">
+</property>
+<property name="ScenarioID" value="SCN-RX-CORE-01">
+</property>
+<property name="Category" value="InvalidOrBoundaryInput">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-RX-NEG-BOUNDARY: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-PRESCRIPTIONS-NEG-003 | Prescriptions | Enforce allergy or interaction fail-safe before finalizing prescription" classname="high-priority-cases.spec.ts" time="15.282">
+<properties>
+<property name="TestCaseID" value="TC-PRESCRIPTIONS-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-PRESCRIPTIONS-1">
+</property>
+<property name="ScenarioID" value="SCN-RX-CORE-01">
+</property>
+<property name="Category" value="CrossRecordOrAccessIsolation">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-PAT-ALGY-01: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @positive TC-PRESCRIPTIONS-POS-001 | Prescriptions | Create prescription with valid lines and dosing instructions" classname="high-priority-cases.spec.ts" time="6.494">
+<properties>
+<property name="TestCaseID" value="TC-PRESCRIPTIONS-POS-001">
+</property>
+<property name="RequirementID" value="REQ-PRESCRIPTIONS-1">
+</property>
+<property name="ScenarioID" value="SCN-RX-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-RX-003: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-LABREPORTS-NEG-001 | Lab Reports | Block lab report save when required patient is missing" classname="high-priority-cases.spec.ts" time="9.011">
+<properties>
+<property name="TestCaseID" value="TC-LABREPORTS-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-LABREPORTS-1">
+</property>
+<property name="ScenarioID" value="SCN-LAB-ALT-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-LAB-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-LABREPORTS-NEG-002 | Lab Reports | Block lab report save when required date is missing" classname="high-priority-cases.spec.ts" time="8.877">
+<properties>
+<property name="TestCaseID" value="TC-LABREPORTS-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-LABREPORTS-1">
+</property>
+<property name="ScenarioID" value="SCN-LAB-ALT-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-LAB-002: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-LABREPORTS-NEG-003 | Lab Reports | Prevent wrong-patient lab result attachment" classname="high-priority-cases.spec.ts" time="6.08">
+<properties>
+<property name="TestCaseID" value="TC-LABREPORTS-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-LABREPORTS-1">
+</property>
+<property name="ScenarioID" value="SCN-LAB-ALT-01">
+</property>
+<property name="Category" value="CrossRecordOrAccessIsolation">
+</property>
+<property name="Priority" value="P0">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-PAT-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @positive TC-LABREPORTS-POS-001 | Lab Reports | Create lab report with valid required and referral fields" classname="high-priority-cases.spec.ts" time="6.788">
+<properties>
+<property name="TestCaseID" value="TC-LABREPORTS-POS-001">
+</property>
+<property name="RequirementID" value="REQ-LABREPORTS-1">
+</property>
+<property name="ScenarioID" value="SCN-LAB-ALT-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-LAB-003: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-IPDDETAILS-NEG-001 | IPD Details | Prevent assigning occupied bed to a second active IPD case" classname="high-priority-cases.spec.ts" time="6.97">
+<properties>
+<property name="TestCaseID" value="TC-IPDDETAILS-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-IPD-1">
+</property>
+<property name="ScenarioID" value="SCN-IPD-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-PAT-003: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-IPDDETAILS-NEG-002 | IPD Details | Prevent active-treatment update after discharge status" classname="high-priority-cases.spec.ts" time="7.012">
+<properties>
+<property name="TestCaseID" value="TC-IPDDETAILS-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-IPD-1">
+</property>
+<property name="ScenarioID" value="SCN-IPD-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-IPD-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-IPDDETAILS-NEG-003 | IPD Details | Prevent linking IPD admission to unrelated patient context" classname="high-priority-cases.spec.ts" time="6.838">
+<properties>
+<property name="TestCaseID" value="TC-IPDDETAILS-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-IPD-1">
+</property>
+<property name="ScenarioID" value="SCN-IPD-CORE-01">
+</property>
+<property name="Category" value="CrossRecordOrAccessIsolation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-PAT-004: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @positive TC-IPDDETAILS-POS-001 | IPD Details | Create valid IPD admission with doctor ward and bed assignment" classname="high-priority-cases.spec.ts" time="6.758">
+<properties>
+<property name="TestCaseID" value="TC-IPDDETAILS-POS-001">
+</property>
+<property name="RequirementID" value="REQ-IPD-1">
+</property>
+<property name="ScenarioID" value="SCN-IPD-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-PAT-003: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-BILLING-NEG-001 | Billing | Block billing save when required patient is missing" classname="high-priority-cases.spec.ts" time="8.659">
+<properties>
+<property name="TestCaseID" value="TC-BILLING-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-BILLING-1">
+</property>
+<property name="ScenarioID" value="SCN-BIL-ALT-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-IPD-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-BILLING-NEG-002 | Billing | Reject negative billing line amount" classname="high-priority-cases.spec.ts" time="10.459">
+<properties>
+<property name="TestCaseID" value="TC-BILLING-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-BILLING-1">
+</property>
+<property name="ScenarioID" value="SCN-BIL-ALT-01">
+</property>
+<property name="Category" value="InvalidOrBoundaryInput">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-IPD-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-BILLING-NEG-003 | Billing | Prevent duplicate billing line for same service event" classname="high-priority-cases.spec.ts" time="7.611">
+<properties>
+<property name="TestCaseID" value="TC-BILLING-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-BILLING-1">
+</property>
+<property name="ScenarioID" value="SCN-BIL-ALT-01">
+</property>
+<property name="Category" value="CrossRecordOrAccessIsolation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-APT-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @positive TC-BILLING-POS-001 | Billing | Create billing with valid lines and accurate total" classname="high-priority-cases.spec.ts" time="6.439">
+<properties>
+<property name="TestCaseID" value="TC-BILLING-POS-001">
+</property>
+<property name="RequirementID" value="REQ-BILLING-1">
+</property>
+<property name="ScenarioID" value="SCN-BIL-ALT-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-PAT-002: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @negative TC-WARDMANAGEMENT-NEG-001 | Ward Management | Block ward creation when required ward name is missing" classname="high-priority-cases.spec.ts" time="10.105">
+<properties>
+<property name="TestCaseID" value="TC-WARDMANAGEMENT-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-WARD-1">
+</property>
+<property name="ScenarioID" value="SCN-WARD-CORE-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @negative TC-WARDMANAGEMENT-NEG-002 | Ward Management | Block ward creation when required ward type is missing" classname="high-priority-cases.spec.ts" time="10.059">
+<properties>
+<property name="TestCaseID" value="TC-WARDMANAGEMENT-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-WARD-1">
+</property>
+<property name="ScenarioID" value="SCN-WARD-CORE-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @negative TC-WARDMANAGEMENT-NEG-003 | Ward Management | Prevent workflow usage of incomplete ward configuration" classname="high-priority-cases.spec.ts" time="6.616">
+<properties>
+<property name="TestCaseID" value="TC-WARDMANAGEMENT-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-WARD-1">
+</property>
+<property name="ScenarioID" value="SCN-WARD-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @positive TC-WARDMANAGEMENT-POS-001 | Ward Management | Create valid ward master for bed allocation planning" classname="high-priority-cases.spec.ts" time="11.321">
+<properties>
+<property name="TestCaseID" value="TC-WARDMANAGEMENT-POS-001">
+</property>
+<property name="RequirementID" value="REQ-WARD-1">
+</property>
+<property name="ScenarioID" value="SCN-WARD-CORE-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P3">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-BEDMANAGEMENT-NEG-001 | Bed Management | Block bed creation when required bed number is missing" classname="high-priority-cases.spec.ts" time="11.951">
+<properties>
+<property name="TestCaseID" value="TC-BEDMANAGEMENT-NEG-001">
+</property>
+<property name="RequirementID" value="REQ-BED-1">
+</property>
+<property name="ScenarioID" value="SCN-BED-ALT-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-WARD-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-BEDMANAGEMENT-NEG-002 | Bed Management | Block bed creation when required ward is missing" classname="high-priority-cases.spec.ts" time="9.873">
+<properties>
+<property name="TestCaseID" value="TC-BEDMANAGEMENT-NEG-002">
+</property>
+<property name="RequirementID" value="REQ-BED-1">
+</property>
+<property name="ScenarioID" value="SCN-BED-ALT-01">
+</property>
+<property name="Category" value="RequiredFieldValidation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="seed-record-present" value="SEED-BED-010: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @smoke @negative TC-BEDMANAGEMENT-NEG-003 | Bed Management | Prevent assigning one bed to multiple active patients" classname="high-priority-cases.spec.ts" time="6.707">
+<properties>
+<property name="TestCaseID" value="TC-BEDMANAGEMENT-NEG-003">
+</property>
+<property name="RequirementID" value="REQ-BED-1">
+</property>
+<property name="ScenarioID" value="SCN-BED-ALT-01">
+</property>
+<property name="Category" value="CrossRecordOrAccessIsolation">
+</property>
+<property name="Priority" value="P1">
+</property>
+<property name="Type" value="Negative">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-BED-001: yes">
+</property>
+</properties>
+</testcase>
+<testcase name="Data-driven FE execution from test_cases.csv (scope=all) › @regression @positive TC-BEDMANAGEMENT-POS-001 | Bed Management | Create bed with valid ward linkage and status" classname="high-priority-cases.spec.ts" time="10.666">
+<properties>
+<property name="TestCaseID" value="TC-BEDMANAGEMENT-POS-001">
+</property>
+<property name="RequirementID" value="REQ-BED-1">
+</property>
+<property name="ScenarioID" value="SCN-BED-ALT-01">
+</property>
+<property name="Category" value="WorkflowOrStateGuard">
+</property>
+<property name="Priority" value="P2">
+</property>
+<property name="Type" value="Positive">
+</property>
+<property name="note" value="Non-form-fill category — form binding skipped.">
+</property>
+<property name="seed-record-present" value="SEED-BED-011: yes">
+</property>
+</properties>
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-07-11T19:02:31.568Z",
+  "baseUrl": "https://team43.qaaerp.com",
+  "totalProbes": 6,
+  "results": [
+    {
+      "id": "BUG-ONCO-001",
+      "module": "Prescriptions",
+      "title": "Server accepts negative drug quantity in prescription lines",
+      "status": "ConfirmedDefect",
+      "severity": "Critical",
+      "priority": "P0",
+      "patientSafetyImpact": "Negative quantity can distort dosage interpretation and directly risk unsafe medication orders.",
+      "evidence": {
+        "model": "healthplix.prescription.line",
+        "method": "create",
+        "payload": {
+          "prescription_id": 21,
+          "patient_id": 36,
+          "product_id": 4,
+          "quantity": -1
+        },
+        "persistedRecordId": 21
+      }
+    },
+    {
+      "id": "BUG-ONCO-002",
+      "module": "Billing",
+      "title": "Server accepts negative billing unit price",
+      "status": "ConfirmedDefect",
+      "severity": "High",
+      "priority": "P1",
+      "patientSafetyImpact": "Invalid negative billing can disrupt treatment continuity through incorrect financial eligibility and audit records.",
+      "evidence": {
+        "model": "healthplix.billing.line",
+        "method": "create",
+        "payload": {
+          "billing_id": 14,
+          "line_type": "lab",
+          "quantity": 1,
+          "price": -1000
+        },
+        "persistedRecordId": 10
+      }
+    },
+    {
+      "id": "BUG-ONCO-003",
+      "module": "Doctors",
+      "title": "Server accepts negative doctor experience",
+      "status": "ConfirmedDefect",
+      "severity": "Medium",
+      "priority": "P2",
+      "patientSafetyImpact": "Corrupted provider metadata undermines trust and can mislead assignment workflows.",
+      "evidence": {
+        "model": "healthplix.doctor",
+        "method": "create",
+        "payload": {
+          "name": "SEED-EXP-DOC-1783796546976-1756",
+          "experience": -1
+        },
+        "persistedRecordId": 15
+      }
+    },
+    {
+      "id": "BUG-ONCO-004",
+      "module": "Prescriptions",
+      "title": "Server accepts clinically implausible dosage text without guardrails",
+      "status": "ConfirmedDefect",
+      "severity": "High",
+      "priority": "P1",
+      "patientSafetyImpact": "Unbounded dosage input can enable unsafe medication instructions in clinical workflows.",
+      "evidence": {
+        "model": "healthplix.prescription.line",
+        "method": "create",
+        "payload": {
+          "prescription_id": 22,
+          "patient_id": 38,
+          "product_id": 4,
+          "quantity": 1,
+          "dosage": "9999 mg every 1 minute"
+        },
+        "persistedRecordId": 22
+      }
+    },
+    {
+      "id": "BUG-ONCO-005",
+      "module": "Appointments",
+      "title": "Server accepts past-dated appointment creation",
+      "status": "Guarded",
+      "severity": "Medium",
+      "priority": "P2",
+      "patientSafetyImpact": "Past-date acceptance degrades schedule integrity and may cause missed/incorrect care tracking.",
+      "evidence": {
+        "model": "healthplix.appointment",
+        "method": "create",
+        "payload": {
+          "patient_id": 39,
+          "doctor_id": 16,
+          "appointment_date": "2001-01-01",
+          "appointment_time": "09:00",
+          "notes": "SEED-EXP-PAST-APT-1783796549122-1495"
+        },
+        "persistedRecordId": null
+      }
+    },
+    {
+      "id": "BUG-ONCO-006",
+      "module": "Patients",
+      "title": "Cross-user direct-ID access isolation probe",
+      "status": "Blocked",
+      "severity": "High",
+      "priority": "P1",
+      "patientSafetyImpact": "Cross-user record leakage would directly violate patient confidentiality and continuity boundaries.",
+      "evidence": {
+        "notes": "Skipped: ODOO_SECONDARY_USER / ODOO_SECONDARY_PASSWORD not configured."
+      }
+    }
+  ]
+}

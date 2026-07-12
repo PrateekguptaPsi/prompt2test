@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-07-11T06:54:20.045Z",
+  "assigneeEmail": "prateek.gupta@thepsi.com",
+  "assigneeAccountId": "557058:90e432de-22d4-4ff6-a9a3-5111be91e864",
+  "report": [
+    {
+      "storyKey": "KAN-4",
+      "finalStoryStatus": "To Do",
+      "subtasks": [
+        {
+          "key": "KAN-13",
+          "finalStatus": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-5",
+      "finalStoryStatus": "In Review",
+      "subtasks": [
+        {
+          "key": "KAN-14",
+          "finalStatus": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-6",
+      "finalStoryStatus": "In Review",
+      "subtasks": [
+        {
+          "key": "KAN-15",
+          "finalStatus": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-7",
+      "finalStoryStatus": "In Review",
+      "subtasks": [
+        {
+          "key": "KAN-16",
+          "finalStatus": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-8",
+      "finalStoryStatus": "In Review",
+      "subtasks": [
+        {
+          "key": "KAN-17",
+          "finalStatus": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-9",
+      "finalStoryStatus": "In Review",
+      "subtasks": [
+        {
+          "key": "KAN-18",
+          "finalStatus": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-10",
+      "finalStoryStatus": "In Review",
+      "subtasks": [
+        {
+          "key": "KAN-19",
+          "finalStatus": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-11",
+      "finalStoryStatus": "In Review",
+      "subtasks": [
+        {
+          "key": "KAN-20",
+          "finalStatus": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-12",
+      "finalStoryStatus": "In Review",
+      "subtasks": [
+        {
+          "key": "KAN-21",
+          "finalStatus": "Done"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+# ─── Secrets (NEVER commit) ───────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+**/secrets.*
+
+# ─── Dependencies ─────────────────────────────────────────
+node_modules/
+**/node_modules/
+.npm/
+.pnpm-store/
+
+# ─── Test / automation output ─────────────────────────────
+05_automation/.auth/
+05_automation/reports/
+05_automation/test-results/
+**/playwright-report/
+**/test-results/
+**/.auth/
+
+# ─── Build / cache ────────────────────────────────────────
+dist/
+build/
+.cache/
+*.tsbuildinfo
+
+# ─── Logs & temp ──────────────────────────────────────────
+*.log
+npm-debug.log*
+.tmp/
+tmp/
+
+# ─── OS / editor cruft ────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/launch.json
+
+# ─── Office temp / lock files ─────────────────────────────
+~$*
+*.tmp

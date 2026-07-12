@@ -1,0 +1,160 @@
+{
+  "generatedAt": "2026-07-12T00:33:00+05:30",
+  "sourceEvidence": [
+    "05_automation/reports/summary/summary.md",
+    "05_automation/reports/junit/results.xml",
+    "artifacts/step9_exploratory_results.json"
+  ],
+  "confirmedDefects": [
+    {
+      "id": "BUG-ONCO-001",
+      "testCaseId": "TC-PRESCRIPTIONS-NEG-002",
+      "requirementId": "REQ-PRESCRIPTIONS-1",
+      "scenarioId": "SCN-RX-CORE-01",
+      "module": "Prescriptions",
+      "severity": "Critical",
+      "priority": "P0",
+      "title": "Server accepts negative drug quantity in prescription lines",
+      "preconditions": "Authenticated user with create permission; valid patient and product exist.",
+      "steps": [
+        "Create prescription header via JSON-RPC with a valid patient_id.",
+        "Call /web/dataset/call_kw/healthplix.prescription.line/create with quantity=-1.",
+        "Read created record to verify invalid value persistence."
+      ],
+      "expected": "Server rejects prescription line when quantity <= 0.",
+      "actual": "Record is created and persisted with quantity=-1.",
+      "businessImpact": "Patient-safety risk: unsafe medication quantity can propagate to prescription workflows.",
+      "evidence": {
+        "payload": {
+          "model": "healthplix.prescription.line",
+          "method": "create",
+          "args": [
+            {
+              "prescription_id": 21,
+              "patient_id": 36,
+              "product_id": 4,
+              "quantity": -1
+            }
+          ]
+        },
+        "traceRefs": [
+          "05_automation/test-results/api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium/error-context.md"
+        ]
+      },
+      "status": "FiledToJira",
+      "jiraKey": "KAN-49"
+    },
+    {
+      "id": "BUG-ONCO-002",
+      "testCaseId": "TC-BILLING-NEG-002",
+      "requirementId": "REQ-BILLING-1",
+      "scenarioId": "SCN-BIL-ALT-01",
+      "module": "Billing",
+      "severity": "High",
+      "priority": "P1",
+      "title": "Server accepts negative billing unit price",
+      "preconditions": "Authenticated user with create permission; valid patient and billing header exist.",
+      "steps": [
+        "Create billing header via JSON-RPC with valid patient_id.",
+        "Call /web/dataset/call_kw/healthplix.billing.line/create with price=-1000 and quantity=1.",
+        "Read created record to verify invalid value persistence."
+      ],
+      "expected": "Server rejects billing line when price < 0.",
+      "actual": "Record is created and persisted with price=-1000.",
+      "businessImpact": "Financial integrity risk impacting invoicing trust and downstream settlement.",
+      "evidence": {
+        "payload": {
+          "model": "healthplix.billing.line",
+          "method": "create",
+          "args": [
+            {
+              "billing_id": 14,
+              "line_type": "lab",
+              "quantity": 1,
+              "price": -1000
+            }
+          ]
+        },
+        "traceRefs": [
+          "05_automation/test-results/api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium/error-context.md"
+        ]
+      },
+      "status": "FiledToJira",
+      "jiraKey": "KAN-50"
+    },
+    {
+      "id": "BUG-ONCO-003",
+      "testCaseId": "TC-DOCTORS-NEG-002",
+      "requirementId": "REQ-DOCTORS-1",
+      "scenarioId": "SCN-DOC-CORE-01",
+      "module": "Doctors",
+      "severity": "Medium",
+      "priority": "P2",
+      "title": "Server accepts negative doctor experience",
+      "preconditions": "Authenticated user with create permission.",
+      "steps": [
+        "Call /web/dataset/call_kw/healthplix.doctor/create with name=synthetic and experience=-1.",
+        "Read created doctor record."
+      ],
+      "expected": "Server rejects doctor profile when experience < 0.",
+      "actual": "Doctor record is created with experience=-1.",
+      "businessImpact": "Data integrity degradation in provider master data used for care assignment context.",
+      "evidence": {
+        "payload": {
+          "model": "healthplix.doctor",
+          "method": "create",
+          "args": [
+            {
+              "name": "SEED-EXP-DOC-1783796546976-1756",
+              "experience": -1
+            }
+          ]
+        },
+        "traceRefs": [
+          "05_automation/test-results/api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium/error-context.md"
+        ]
+      },
+      "status": "FiledToJira",
+      "jiraKey": "KAN-51"
+    },
+    {
+      "id": "BUG-ONCO-004",
+      "testCaseId": "EXP-PRESCRIPTIONS-DOSE-001",
+      "requirementId": "REQ-PRESCRIPTIONS-1",
+      "scenarioId": "SCN-RX-CORE-01",
+      "module": "Prescriptions",
+      "severity": "High",
+      "priority": "P1",
+      "title": "Server accepts clinically implausible dosage text without guardrails",
+      "preconditions": "Authenticated user; valid patient, prescription header, and product exist.",
+      "steps": [
+        "Create prescription header with valid patient_id.",
+        "Call /web/dataset/call_kw/healthplix.prescription.line/create with dosage='9999 mg every 1 minute' and quantity=1.",
+        "Read created prescription line."
+      ],
+      "expected": "Server enforces dosage guardrails or blocks unsafe dosage strings.",
+      "actual": "Record is created with clinically implausible dosage text.",
+      "businessImpact": "Patient-safety risk from unchecked dosage instructions entering prescribing workflow.",
+      "evidence": {
+        "payload": {
+          "model": "healthplix.prescription.line",
+          "method": "create",
+          "args": [
+            {
+              "prescription_id": 22,
+              "patient_id": 38,
+              "product_id": 4,
+              "quantity": 1,
+              "dosage": "9999 mg every 1 minute"
+            }
+          ]
+        },
+        "traceRefs": [
+          "artifacts/step9_exploratory_results.json"
+        ]
+      },
+      "status": "FiledToJira",
+      "jiraKey": "KAN-52"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prompt2Test HMS Bug Report — Step 10 Consolidation</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; line-height: 1.4; color: #111; }
+    h1, h2, h3 { margin: 0 0 10px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; margin-top: 28px; }
+    h3 { font-size: 16px; margin-top: 20px; }
+    .meta { margin-bottom: 20px; color: #444; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; margin-right: 6px; }
+    .critical { background: #ffe5e5; color: #a40000; }
+    .high { background: #fff0e0; color: #9a3c00; }
+    .medium { background: #fff9dc; color: #6b5a00; }
+    .low { background: #e8f4ff; color: #004a85; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; }
+    th, td { border: 1px solid #d9d9d9; padding: 8px; vertical-align: top; text-align: left; }
+    th { background: #f6f6f6; }
+    pre { background: #f7f7f7; padding: 10px; border: 1px solid #e2e2e2; overflow: auto; }
+    .card { border: 1px solid #ddd; border-left: 4px solid #b30000; padding: 12px; margin: 14px 0; }
+    .note { background: #f9fbff; border: 1px solid #d9e8ff; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Step 10 — Consolidated Defect Report (HealthPlix Oncology HMS)</h1>
+  <div class="meta">
+    Source evidence: <code>05_automation/reports/summary/summary.md</code>,
+    <code>05_automation/reports/junit/results.xml</code>,
+    <code>artifacts/step9_exploratory_results.json</code><br />
+    Execution summary basis: 38/43 passed, 3 failed, 2 skipped (latest run).<br />
+    Priority principle: <strong>Patient-safety first</strong>.
+  </div>
+
+  <h2>Severity Split</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Severity</th>
+        <th>Count</th>
+        <th>Percent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge critical">Critical</span></td><td>1</td><td>25.00%</td></tr>
+      <tr><td><span class="badge high">High</span></td><td>2</td><td>50.00%</td></tr>
+      <tr><td><span class="badge medium">Medium</span></td><td>1</td><td>25.00%</td></tr>
+      <tr><td><span class="badge low">Low</span></td><td>0</td><td>0.00%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Defect Density per Module</h2>
+  <div class="note">
+    Formula: <code>DefectDensity(module) = ConfirmedDefectsInModule / ExecutedTestCasesInModule</code><br />
+    Executed test cases per business module = 4 (from <code>04_cases/test_cases.csv</code>).
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Confirmed Defects</th>
+        <th>Executed Test Cases</th>
+        <th>Defect Density</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Prescriptions</td><td>2</td><td>4</td><td>0.50</td></tr>
+      <tr><td>Billing</td><td>1</td><td>4</td><td>0.25</td></tr>
+      <tr><td>Doctors</td><td>1</td><td>4</td><td>0.25</td></tr>
+      <tr><td>Appointments</td><td>0</td><td>4</td><td>0.00</td></tr>
+      <tr><td>Patients</td><td>0</td><td>4</td><td>0.00</td></tr>
+      <tr><td>Lab Reports</td><td>0</td><td>4</td><td>0.00</td></tr>
+      <tr><td>IPD Details</td><td>0</td><td>4</td><td>0.00</td></tr>
+      <tr><td>Ward Management</td><td>0</td><td>4</td><td>0.00</td></tr>
+      <tr><td>Bed Management</td><td>0</td><td>4</td><td>0.00</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Highest-density concentration:</strong> Prescriptions (0.50), then Billing and Doctors (0.25 each).<br />
+  <strong>Patient-safety-critical concentration:</strong> Prescriptions includes one Critical defect affecting medication quantity validation.</p>
+
+  <h2>Confirmed Defects (Patient-Safety First)</h2>
+
+  <div class="card">
+    <h3>BUG-ONCO-001 — Negative prescription quantity accepted</h3>
+    <table>
+      <tr><th>ID</th><td>BUG-ONCO-001</td></tr>
+      <tr><th>JiraKey</th><td>KAN-49</td></tr>
+      <tr><th>Severity</th><td><span class="badge critical">Critical</span></td></tr>
+      <tr><th>Priority</th><td>P0</td></tr>
+      <tr><th>Module</th><td>Prescriptions</td></tr>
+      <tr><th>Preconditions</th><td>Authenticated user; valid patient/product context.</td></tr>
+      <tr><th>Steps</th><td>
+        1. Create prescription header via JSON-RPC with valid <code>patient_id</code>.<br />
+        2. Call line create with <code>quantity=-1</code>.<br />
+        3. Verify persisted record.
+      </td></tr>
+      <tr><th>Expected</th><td>Server rejects prescription line where quantity ≤ 0.</td></tr>
+      <tr><th>Actual</th><td>Server created and persisted record with negative quantity.</td></tr>
+      <tr><th>Evidence</th><td>
+        API endpoint: <code>/web/dataset/call_kw/healthplix.prescription.line/create</code><br />
+        Payload:
+        <pre>{
+  "prescription_id": 21,
+  "patient_id": 36,
+  "product_id": 4,
+  "quantity": -1
+}</pre>
+        Persisted record id: <code>21</code><br />
+        Test evidence: <code>api-business-rules-Step-8--63f1e-ust-not-be-zero-or-negative-chromium/error-context.md</code>
+      </td></tr>
+      <tr><th>BusinessImpact</th><td>Direct patient-safety risk through unsafe medication orders and dosage interpretation errors.</td></tr>
+      <tr><th>Status</th><td>Confirmed</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>BUG-ONCO-004 — Clinically implausible dosage text accepted</h3>
+    <table>
+      <tr><th>ID</th><td>BUG-ONCO-004</td></tr>
+      <tr><th>JiraKey</th><td>KAN-52</td></tr>
+      <tr><th>Severity</th><td><span class="badge high">High</span></td></tr>
+      <tr><th>Priority</th><td>P1</td></tr>
+      <tr><th>Module</th><td>Prescriptions</td></tr>
+      <tr><th>Preconditions</th><td>Authenticated user; valid patient/prescription/product context.</td></tr>
+      <tr><th>Steps</th><td>
+        1. Create prescription header via JSON-RPC.<br />
+        2. Create prescription line with <code>dosage='9999 mg every 1 minute'</code>.<br />
+        3. Verify persisted line.
+      </td></tr>
+      <tr><th>Expected</th><td>Unsafe dosage pattern is blocked or forced into fail-safe review flow.</td></tr>
+      <tr><th>Actual</th><td>Line persisted with implausible dosage text.</td></tr>
+      <tr><th>Evidence</th><td>
+        API endpoint: <code>/web/dataset/call_kw/healthplix.prescription.line/create</code><br />
+        Payload:
+        <pre>{
+  "prescription_id": 22,
+  "patient_id": 38,
+  "product_id": 4,
+  "quantity": 1,
+  "dosage": "9999 mg every 1 minute"
+}</pre>
+        Persisted record id: <code>22</code><br />
+        Exploratory evidence: <code>artifacts/step9_exploratory_results.json</code>
+      </td></tr>
+      <tr><th>BusinessImpact</th><td>Unsafe prescribing instructions can enter treatment workflow without server-side guardrails.</td></tr>
+      <tr><th>Status</th><td>Confirmed</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>BUG-ONCO-002 — Negative billing unit price accepted</h3>
+    <table>
+      <tr><th>ID</th><td>BUG-ONCO-002</td></tr>
+      <tr><th>JiraKey</th><td>KAN-50</td></tr>
+      <tr><th>Severity</th><td><span class="badge high">High</span></td></tr>
+      <tr><th>Priority</th><td>P1</td></tr>
+      <tr><th>Module</th><td>Billing</td></tr>
+      <tr><th>Preconditions</th><td>Authenticated user; valid billing header.</td></tr>
+      <tr><th>Steps</th><td>
+        1. Create billing header with valid patient.<br />
+        2. Create billing line with <code>price=-1000</code>, <code>quantity=1</code>.<br />
+        3. Verify persisted line.
+      </td></tr>
+      <tr><th>Expected</th><td>Server rejects billing lines with negative price.</td></tr>
+      <tr><th>Actual</th><td>Server persisted billing line with negative price.</td></tr>
+      <tr><th>Evidence</th><td>
+        API endpoint: <code>/web/dataset/call_kw/healthplix.billing.line/create</code><br />
+        Payload:
+        <pre>{
+  "billing_id": 14,
+  "line_type": "lab",
+  "quantity": 1,
+  "price": -1000
+}</pre>
+        Persisted record id: <code>10</code><br />
+        Test evidence: <code>api-business-rules-Step-8--00ac6--price-must-not-be-negative-chromium/error-context.md</code>
+      </td></tr>
+      <tr><th>BusinessImpact</th><td>Financial and audit integrity compromise that can affect care-continuity decisions tied to billing state.</td></tr>
+      <tr><th>Status</th><td>Confirmed</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>BUG-ONCO-003 — Negative doctor experience accepted</h3>
+    <table>
+      <tr><th>ID</th><td>BUG-ONCO-003</td></tr>
+      <tr><th>JiraKey</th><td>KAN-51</td></tr>
+      <tr><th>Severity</th><td><span class="badge medium">Medium</span></td></tr>
+      <tr><th>Priority</th><td>P2</td></tr>
+      <tr><th>Module</th><td>Doctors</td></tr>
+      <tr><th>Preconditions</th><td>Authenticated user with doctor-create access.</td></tr>
+      <tr><th>Steps</th><td>
+        1. Create doctor via JSON-RPC with <code>experience=-1</code>.<br />
+        2. Verify persisted doctor record.
+      </td></tr>
+      <tr><th>Expected</th><td>Server rejects negative doctor experience.</td></tr>
+      <tr><th>Actual</th><td>Doctor record persisted with negative experience.</td></tr>
+      <tr><th>Evidence</th><td>
+        API endpoint: <code>/web/dataset/call_kw/healthplix.doctor/create</code><br />
+        Payload:
+        <pre>{
+  "name": "SEED-EXP-DOC-1783796546976-1756",
+  "experience": -1
+}</pre>
+        Persisted record id: <code>15</code><br />
+        Test evidence: <code>api-business-rules-Step-8--fa116-rience-must-not-be-negative-chromium/error-context.md</code>
+      </td></tr>
+      <tr><th>BusinessImpact</th><td>Master-data quality risk and reporting inconsistency in clinician profile records.</td></tr>
+      <tr><th>Status</th><td>Confirmed</td></tr>
+    </table>
+  </div>
+
+  
+<h2>Root-Cause Analysis</h2>
+<p><strong>Systemic root cause:</strong> the <code>healthplix.*</code> custom models ship without
+server-side constraints (Odoo <code>@api.constrains</code> / SQL <code>CHECK</code>) on
+clinically and financially critical numeric fields. All four confirmed defects reproduce via
+direct JSON-RPC <code>create</code> calls, proving the ORM layer accepts the invalid values;
+any validation that exists lives only in UI widgets and is bypassable by any API client,
+integration, or import job.</p>
+<table border="1" cellpadding="6" cellspacing="0">
+  <tr><th>Defect</th><th>Field</th><th>Missing guard</th><th>Root cause</th></tr>
+  <tr><td>BUG-ONCO-001 (KAN-49)</td><td>healthplix.prescription.line.quantity</td>
+      <td>quantity &gt; 0 constraint</td>
+      <td>No <code>@api.constrains('quantity')</code>; field defined as plain Float with no domain.</td></tr>
+  <tr><td>BUG-ONCO-004 (KAN-52)</td><td>healthplix.prescription.line dosage text</td>
+      <td>Dosage plausibility / vocabulary check</td>
+      <td>Free-text Char field; no validation list or range parsing for dosage strings.</td></tr>
+  <tr><td>BUG-ONCO-002 (KAN-50)</td><td>healthplix.billing.line.price</td>
+      <td>price &gt;= 0 constraint</td>
+      <td>No non-negative constraint; negative unit price flows into computed subtotal and invoice total.</td></tr>
+  <tr><td>BUG-ONCO-003 (KAN-51)</td><td>healthplix.doctor.experience</td>
+      <td>experience &gt;= 0 constraint</td>
+      <td>Plain Integer field; no bounds validation at model level.</td></tr>
+</table>
+<p><strong>Why severity is patient-safety led:</strong> a negative or implausible medication
+quantity/dosage that persists to the prescription record can propagate to pharmacy fulfilment
+and administration records in an oncology context, where dosing errors are life-threatening.</p>
+<p><strong>Recommended fix pattern:</strong> add model-level <code>@api.constrains</code> for each
+field above (single small patch per model), plus a regression re-run of the API boundary bug
+hunter in <code>05_automation/tests/api-business-rules.spec.ts</code>, which will turn green
+automatically once the constraints exist &mdash; no test changes needed.</p>
+
+<h2>Non-Confirmed / Blocked Exploratory Outcomes</h2>
+  <ul>
+    <li><strong>BUG-ONCO-005 (Appointments, past-dated):</strong> Guarded in this run (record not persisted).</li>
+    <li><strong>BUG-ONCO-006 (Patients, cross-user ID probe):</strong> Blocked due to missing <code>ODOO_SECONDARY_USER</code>/<code>ODOO_SECONDARY_PASSWORD</code>.</li>
+  </ul>
+
+  <h2>Enhancements (Non-defect observations)</h2>
+  <ul>
+    <li>Add centralized server-side numeric constraint policy across healthplix.* models for non-negative and bounded clinical/financial fields.</li>
+    <li>Introduce dosage validation rules (range, pattern, and unit constraints) with explicit fail-safe review actions.</li>
+    <li>Add regression API checks in CI for all boundary constraints currently represented by confirmed defects.</li>
+    <li>Enable secondary synthetic user credentials in automation environment to continuously execute cross-user isolation probes.</li>
+  </ul>
+</body>
+</html>

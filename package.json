@@ -1,0 +1,29 @@
+{
+  "name": "prompt2test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "map:ui": "tsx scripts/map-ui.ts",
+    "map:models": "tsx scripts/dump-model-schema.ts",
+    "map:all": "npm run map:ui && npm run map:models",
+    "seed": "tsx scripts/seed-data.ts",
+    "test:ui": "playwright test -c 05_automation/playwright.config.ts high-priority-cases.spec.ts",
+    "test:api": "playwright test -c 05_automation/playwright.config.ts api-business-rules.spec.ts",
+    "test:all": "playwright test -c 05_automation/playwright.config.ts",
+    "test:full": "npm run seed && npm run test:all",
+    "test:report": "playwright show-report 05_automation/reports/html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
+    "playwright": "^1.61.1",
+    "tsx": "^4.23.0",
+    "typescript": "^7.0.2"
+  }
+}

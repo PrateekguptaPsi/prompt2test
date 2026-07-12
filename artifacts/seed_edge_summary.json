@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-07-11T07:26:32.487Z",
+  "anchors": {
+    "patientLocked": 7,
+    "patientAllergy": 8,
+    "patientA": 9,
+    "patientB": 10,
+    "patientC": 11,
+    "patientD": 12,
+    "doctor1": 4,
+    "doctor2": 5,
+    "apt1": 11,
+    "aptOther": 12,
+    "ipd": 1,
+    "bill": 4,
+    "lab1": 6,
+    "lab2": 7,
+    "lab3": 8,
+    "ward1": 1,
+    "bed1": 1,
+    "drug001": 2,
+    "drug002": 3,
+    "drugAlgy": 4
+  }
+}

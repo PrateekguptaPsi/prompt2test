@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-07-11T18:17:36.354Z",
+  "runTag": "20260711181736",
+  "baseUrl": "https://team43.qaaerp.com",
+  "created": {
+    "healthplix.patient": 0,
+    "healthplix.doctor": 0,
+    "healthplix.appointment": 0,
+    "healthplix.prescription": 1,
+    "healthplix.prescription.line": 1,
+    "healthplix.lab.report": 0,
+    "healthplix.billing": 0
+  },
+  "existing": {
+    "healthplix.patient": 11,
+    "healthplix.doctor": 5,
+    "healthplix.appointment": 12,
+    "healthplix.prescription": 4,
+    "healthplix.prescription.line": 4,
+    "healthplix.lab.report": 8,
+    "healthplix.billing": 4
+  },
+  "totalsAfterSeed": {
+    "healthplix.patient": 11,
+    "healthplix.doctor": 5,
+    "healthplix.appointment": 12,
+    "healthplix.prescription": 5,
+    "healthplix.prescription.line": 5,
+    "healthplix.lab.report": 8,
+    "healthplix.billing": 4
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-07-11T08:15:04.502Z",
+  "assigneeEmail": "prateek.gupta@thepsi.com",
+  "report": [
+    {
+      "storyKey": "KAN-4",
+      "requirementId": "REQ-PATIENTS-1",
+      "subtaskKey": "KAN-40",
+      "transition": "Done",
+      "worklogPosted": true
+    },
+    {
+      "storyKey": "KAN-5",
+      "requirementId": "REQ-DOCTORS-1",
+      "subtaskKey": "KAN-41",
+      "transition": "Done",
+      "worklogPosted": true
+    },
+    {
+      "storyKey": "KAN-6",
+      "requirementId": "REQ-APPOINTMENTS-1",
+      "subtaskKey": "KAN-42",
+      "transition": "Done",
+      "worklogPosted": true
+    },
+    {
+      "storyKey": "KAN-7",
+      "requirementId": "REQ-PRESCRIPTIONS-1",
+      "subtaskKey": "KAN-43",
+      "transition": "Done",
+      "worklogPosted": true
+    },
+    {
+      "storyKey": "KAN-8",
+      "requirementId": "REQ-LABREPORTS-1",
+      "subtaskKey": "KAN-44",
+      "transition": "Done",
+      "worklogPosted": true
+    },
+    {
+      "storyKey": "KAN-9",
+      "requirementId": "REQ-IPD-1",
+      "subtaskKey": "KAN-45",
+      "transition": "Done",
+      "worklogPosted": true
+    },
+    {
+      "storyKey": "KAN-10",
+      "requirementId": "REQ-BILLING-1",
+      "subtaskKey": "KAN-46",
+      "transition": "Done",
+      "worklogPosted": true
+    },
+    {
+      "storyKey": "KAN-11",
+      "requirementId": "REQ-WARD-1",
+      "subtaskKey": "KAN-47",
+      "transition": "Done",
+      "worklogPosted": true
+    },
+    {
+      "storyKey": "KAN-12",
+      "requirementId": "REQ-BED-1",
+      "subtaskKey": "KAN-48",
+      "transition": "Done",
+      "worklogPosted": true
+    }
+  ]
+}

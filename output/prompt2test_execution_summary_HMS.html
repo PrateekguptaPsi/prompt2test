@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prompt2Test QA Execution Report</title>
+<style>
+  :root { --purple:#5b2d8f; --ok:#1a7f37; --bad:#c62828; --muted:#777; }
+  * { box-sizing:border-box; }
+  body { font-family:'Segoe UI',Arial,sans-serif; margin:0; background:#f5f3f8; color:#222; }
+  header { background:linear-gradient(120deg,var(--purple),#8e4ec6); color:#fff; padding:28px 40px; }
+  header h1 { margin:0 0 4px; font-size:24px; }
+  header p { margin:0; opacity:.85; font-size:13px; }
+  main { padding:28px 40px; max-width:1100px; margin:auto; }
+  .kpis { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:28px; }
+  .kpi { background:#fff; border-radius:10px; padding:16px; box-shadow:0 1px 4px rgba(0,0,0,.08); text-align:center; }
+  .kpi .v { font-size:28px; font-weight:700; }
+  .kpi .l { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  h2 { font-size:16px; margin:26px 0 10px; color:var(--purple); }
+  table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  th,td { padding:9px 12px; font-size:13px; text-align:left; border-bottom:1px solid #eee; }
+  th { background:#efeaf6; color:#3d2266; }
+  .num { text-align:right; }
+  .ok { color:var(--ok); font-weight:600; }
+  .bad { color:var(--bad); font-weight:600; }
+  .muted { color:var(--muted); }
+  .err { font-family:Consolas,monospace; font-size:12px; color:var(--bad); }
+  .note { background:#fff8e1; border-left:4px solid #f0b429; padding:10px 14px; font-size:13px; margin-top:12px; border-radius:4px; }
+  footer { text-align:center; font-size:12px; color:var(--muted); padding:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Prompt2Test &mdash; QA Execution Report</h1>
+  <p>Oncology HMS (Odoo) &middot; UI + API automation &middot; 2026-07-11T18:57:49.061Z &middot; verdict: <strong>FAILED</strong></p>
+</header>
+<main>
+  <div class="kpis">
+    <div class="kpi"><div class="v">43</div><div class="l">Total</div></div>
+    <div class="kpi"><div class="v ok">38</div><div class="l">Passed</div></div>
+    <div class="kpi"><div class="v bad">3</div><div class="l">Failed</div></div>
+    <div class="kpi"><div class="v muted">2</div><div class="l">Skipped</div></div>
+    <div class="kpi"><div class="v">88%</div><div class="l">Pass rate</div></div>
+  </div>
+
+  <h2>Results by module</h2>
+  <table><thead><tr><th>Module</th><th class="num">Passed</th><th class="num">Failed</th><th class="num">Skipped</th><th class="num">Pass rate</th></tr></thead>
+  <tbody><tr><td>API</td><td class="num ok">0</td><td class="num bad">3</td><td class="num muted">2</td><td class="num">0%</td></tr><tr><td>Appointments</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>Bed Management</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>Billing</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>Coverage</td><td class="num ok">2</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>Doctors</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>IPD Details</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>Lab Reports</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>Patients</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>Prescriptions</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr><tr><td>Ward Management</td><td class="num ok">4</td><td class="num bad">0</td><td class="num muted">0</td><td class="num">100%</td></tr></tbody></table>
+
+  <h2>Failures / defect candidates (3)</h2>
+  <table><thead><tr><th>Case ID</th><th>Module</th><th>Priority</th><th>Error</th></tr></thead><tbody><tr><td>TC-PRESCRIPTIONS-NEG-002</td><td>API</td><td>P0</td><td class="err">Error: APP DEFECT: healthplix.prescription.line accepted invalid quantity (prescription line quantity must not be zero or negative). File in 06_bugs/Jira.</td></tr><tr><td>TC-BILLING-NEG-002</td><td>API</td><td>P1</td><td class="err">Error: APP DEFECT: healthplix.billing.line accepted invalid price (billing line unit price must not be negative). File in 06_bugs/Jira.</td></tr><tr><td>TC-DOCTORS-NEG-002</td><td>API</td><td>P1</td><td class="err">Error: APP DEFECT: healthplix.doctor accepted invalid experience (doctor experience must not be negative). File in 06_bugs/Jira.</td></tr></tbody></table>
+  <div class="note"><strong>Triage rule:</strong> assertion failures against a verified framework are candidate <em>application</em> defects &mdash; route them to the bug report and Jira instead of weakening the tests.</div>
+
+  <h2>All executed cases</h2>
+  <table><thead><tr><th>Case ID</th><th>Module</th><th>Priority</th><th>Type</th><th>Status</th><th class="num">Duration</th></tr></thead>
+  <tbody><tr><td>TC-BILLING-POS-001</td><td>API</td><td>P2</td><td>Positive</td><td class="muted">skipped</td><td class="num">1.2s</td></tr><tr><td>TC-PATIENTS-NEG-003</td><td>API</td><td>P0</td><td>Negative</td><td class="muted">skipped</td><td class="num">0.6s</td></tr><tr><td>TC-PRESCRIPTIONS-NEG-002</td><td>API</td><td>P0</td><td>Negative</td><td class="bad">failed</td><td class="num">2.8s</td></tr><tr><td>TC-BILLING-NEG-002</td><td>API</td><td>P1</td><td>Negative</td><td class="bad">failed</td><td class="num">2.6s</td></tr><tr><td>TC-DOCTORS-NEG-002</td><td>API</td><td>P1</td><td>Negative</td><td class="bad">failed</td><td class="num">2.0s</td></tr><tr><td>-</td><td>Coverage</td><td>-</td><td>-</td><td class="ok">passed</td><td class="num">0.0s</td></tr><tr><td>-</td><td>Coverage</td><td>-</td><td>-</td><td class="ok">passed</td><td class="num">0.0s</td></tr><tr><td>TC-PATIENTS-NEG-001</td><td>Patients</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">19.8s</td></tr><tr><td>TC-PATIENTS-NEG-002</td><td>Patients</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">6.7s</td></tr><tr><td>TC-PATIENTS-NEG-003</td><td>Patients</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">7.2s</td></tr><tr><td>TC-PATIENTS-POS-001</td><td>Patients</td><td>P1</td><td>Positive</td><td class="ok">passed</td><td class="num">9.7s</td></tr><tr><td>TC-DOCTORS-NEG-001</td><td>Doctors</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">9.0s</td></tr><tr><td>TC-DOCTORS-NEG-002</td><td>Doctors</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">8.4s</td></tr><tr><td>TC-DOCTORS-NEG-003</td><td>Doctors</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">7.9s</td></tr><tr><td>TC-DOCTORS-POS-001</td><td>Doctors</td><td>P2</td><td>Positive</td><td class="ok">passed</td><td class="num">7.0s</td></tr><tr><td>TC-APPOINTMENTS-NEG-001</td><td>Appointments</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">8.4s</td></tr><tr><td>TC-APPOINTMENTS-NEG-002</td><td>Appointments</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">9.1s</td></tr><tr><td>TC-APPOINTMENTS-NEG-003</td><td>Appointments</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">6.4s</td></tr><tr><td>TC-APPOINTMENTS-POS-001</td><td>Appointments</td><td>P2</td><td>Positive</td><td class="ok">passed</td><td class="num">7.9s</td></tr><tr><td>TC-PRESCRIPTIONS-NEG-001</td><td>Prescriptions</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">9.8s</td></tr><tr><td>TC-PRESCRIPTIONS-NEG-002</td><td>Prescriptions</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">8.6s</td></tr><tr><td>TC-PRESCRIPTIONS-NEG-003</td><td>Prescriptions</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">15.3s</td></tr><tr><td>TC-PRESCRIPTIONS-POS-001</td><td>Prescriptions</td><td>P1</td><td>Positive</td><td class="ok">passed</td><td class="num">6.5s</td></tr><tr><td>TC-LABREPORTS-NEG-001</td><td>Lab Reports</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">9.0s</td></tr><tr><td>TC-LABREPORTS-NEG-002</td><td>Lab Reports</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">8.9s</td></tr><tr><td>TC-LABREPORTS-NEG-003</td><td>Lab Reports</td><td>P0</td><td>Negative</td><td class="ok">passed</td><td class="num">6.1s</td></tr><tr><td>TC-LABREPORTS-POS-001</td><td>Lab Reports</td><td>P1</td><td>Positive</td><td class="ok">passed</td><td class="num">6.8s</td></tr><tr><td>TC-IPDDETAILS-NEG-001</td><td>IPD Details</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">7.0s</td></tr><tr><td>TC-IPDDETAILS-NEG-002</td><td>IPD Details</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">7.0s</td></tr><tr><td>TC-IPDDETAILS-NEG-003</td><td>IPD Details</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">6.8s</td></tr><tr><td>TC-IPDDETAILS-POS-001</td><td>IPD Details</td><td>P2</td><td>Positive</td><td class="ok">passed</td><td class="num">6.8s</td></tr><tr><td>TC-BILLING-NEG-001</td><td>Billing</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">8.7s</td></tr><tr><td>TC-BILLING-NEG-002</td><td>Billing</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">10.5s</td></tr><tr><td>TC-BILLING-NEG-003</td><td>Billing</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">7.6s</td></tr><tr><td>TC-BILLING-POS-001</td><td>Billing</td><td>P2</td><td>Positive</td><td class="ok">passed</td><td class="num">6.4s</td></tr><tr><td>TC-WARDMANAGEMENT-NEG-001</td><td>Ward Management</td><td>P2</td><td>Negative</td><td class="ok">passed</td><td class="num">10.1s</td></tr><tr><td>TC-WARDMANAGEMENT-NEG-002</td><td>Ward Management</td><td>P2</td><td>Negative</td><td class="ok">passed</td><td class="num">10.1s</td></tr><tr><td>TC-WARDMANAGEMENT-NEG-003</td><td>Ward Management</td><td>P2</td><td>Negative</td><td class="ok">passed</td><td class="num">6.6s</td></tr><tr><td>TC-WARDMANAGEMENT-POS-001</td><td>Ward Management</td><td>P3</td><td>Positive</td><td class="ok">passed</td><td class="num">11.3s</td></tr><tr><td>TC-BEDMANAGEMENT-NEG-001</td><td>Bed Management</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">12.0s</td></tr><tr><td>TC-BEDMANAGEMENT-NEG-002</td><td>Bed Management</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">9.9s</td></tr><tr><td>TC-BEDMANAGEMENT-NEG-003</td><td>Bed Management</td><td>P1</td><td>Negative</td><td class="ok">passed</td><td class="num">6.7s</td></tr><tr><td>TC-BEDMANAGEMENT-POS-001</td><td>Bed Management</td><td>P2</td><td>Positive</td><td class="ok">passed</td><td class="num">10.7s</td></tr></tbody></table>
+</main>
+<footer>Generated by Prompt2Test PSI summary reporter &middot; run duration 5.7 min</footer>
+</body>
+</html>

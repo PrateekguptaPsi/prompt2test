@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-07-11T06:47:55.721Z",
+  "totalStoriesProcessed": 9,
+  "totalUpdates": 9,
+  "results": [
+    {
+      "storyKey": "KAN-4",
+      "requirementId": "REQ-PATIENTS-1",
+      "subtaskKey": "KAN-13",
+      "scenarioIds": [
+        "SCN-PAT-CORE-01",
+        "SCN-E2E-ONCO-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    },
+    {
+      "storyKey": "KAN-5",
+      "requirementId": "REQ-DOCTORS-1",
+      "subtaskKey": "KAN-14",
+      "scenarioIds": [
+        "SCN-DOC-CORE-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    },
+    {
+      "storyKey": "KAN-6",
+      "requirementId": "REQ-APPOINTMENTS-1",
+      "subtaskKey": "KAN-15",
+      "scenarioIds": [
+        "SCN-APT-ALT-01",
+        "SCN-E2E-ONCO-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    },
+    {
+      "storyKey": "KAN-7",
+      "requirementId": "REQ-PRESCRIPTIONS-1",
+      "subtaskKey": "KAN-16",
+      "scenarioIds": [
+        "SCN-RX-CORE-01",
+        "SCN-E2E-ONCO-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    },
+    {
+      "storyKey": "KAN-8",
+      "requirementId": "REQ-LABREPORTS-1",
+      "subtaskKey": "KAN-17",
+      "scenarioIds": [
+        "SCN-LAB-ALT-01",
+        "SCN-E2E-ONCO-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    },
+    {
+      "storyKey": "KAN-9",
+      "requirementId": "REQ-IPD-1",
+      "subtaskKey": "KAN-18",
+      "scenarioIds": [
+        "SCN-IPD-CORE-01",
+        "SCN-BED-ALT-01",
+        "SCN-E2E-ONCO-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    },
+    {
+      "storyKey": "KAN-10",
+      "requirementId": "REQ-BILLING-1",
+      "subtaskKey": "KAN-19",
+      "scenarioIds": [
+        "SCN-BIL-ALT-01",
+        "SCN-E2E-ONCO-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    },
+    {
+      "storyKey": "KAN-11",
+      "requirementId": "REQ-WARD-1",
+      "subtaskKey": "KAN-20",
+      "scenarioIds": [
+        "SCN-IPD-CORE-01",
+        "SCN-WARD-CORE-01",
+        "SCN-E2E-ONCO-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    },
+    {
+      "storyKey": "KAN-12",
+      "requirementId": "REQ-BED-1",
+      "subtaskKey": "KAN-21",
+      "scenarioIds": [
+        "SCN-IPD-CORE-01",
+        "SCN-BED-ALT-01",
+        "SCN-E2E-ONCO-01"
+      ],
+      "movedToInProgress": false,
+      "movedToDone": true
+    }
+  ]
+}

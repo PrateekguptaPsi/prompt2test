@@ -1,0 +1,5876 @@
+{
+  "generatedAt": "2026-07-11T05:34:23.154Z",
+  "baseUrl": "https://team43.qaaerp.com",
+  "db": "team43",
+  "uid": 2,
+  "models": {
+    "healthplix.appointment": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "name": {
+        "readonly": true,
+        "required": false,
+        "string": "Appointment No",
+        "type": "char"
+      },
+      "patient_id": {
+        "readonly": false,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "patient_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Patient Name",
+        "type": "char"
+      },
+      "patient_phone": {
+        "readonly": false,
+        "required": false,
+        "string": "Phone",
+        "type": "char"
+      },
+      "patient_email": {
+        "readonly": false,
+        "required": false,
+        "string": "Email",
+        "type": "char"
+      },
+      "patient_gender": {
+        "readonly": false,
+        "required": false,
+        "string": "Gender",
+        "type": "selection"
+      },
+      "patient_dob": {
+        "readonly": false,
+        "required": false,
+        "string": "Date of Birth",
+        "type": "date"
+      },
+      "patient_address": {
+        "readonly": false,
+        "required": false,
+        "string": "Address",
+        "type": "text"
+      },
+      "patient_blood_type": {
+        "readonly": false,
+        "required": false,
+        "string": "Blood Type",
+        "type": "selection"
+      },
+      "patient_identity_document_type": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document Type",
+        "type": "selection"
+      },
+      "patient_identity_document_number": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document Number",
+        "type": "char"
+      },
+      "patient_referred_by": {
+        "readonly": false,
+        "required": false,
+        "string": "Referred By",
+        "type": "char"
+      },
+      "patient_image": {
+        "readonly": false,
+        "required": false,
+        "string": "Photo",
+        "type": "binary"
+      },
+      "patient_identity_document_attachment": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document (PDF/Image)",
+        "type": "binary"
+      },
+      "patient_identity_document_attachment_filename": {
+        "readonly": false,
+        "required": false,
+        "string": "Attachment Filename",
+        "type": "char"
+      },
+      "doctor_id": {
+        "readonly": false,
+        "relation": "healthplix.doctor",
+        "required": true,
+        "string": "Doctor",
+        "type": "many2one"
+      },
+      "appointment_date": {
+        "readonly": false,
+        "required": true,
+        "string": "Date",
+        "type": "date"
+      },
+      "appointment_time": {
+        "readonly": false,
+        "required": false,
+        "string": "Time",
+        "type": "float"
+      },
+      "cost": {
+        "readonly": false,
+        "required": false,
+        "string": "Consultation Fee",
+        "type": "float"
+      },
+      "notes": {
+        "readonly": false,
+        "required": false,
+        "string": "Notes",
+        "type": "text"
+      },
+      "state": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "is_billed": {
+        "readonly": true,
+        "required": false,
+        "string": "Already Billed",
+        "type": "boolean"
+      },
+      "is_paid": {
+        "readonly": true,
+        "required": false,
+        "string": "Paid in Billing",
+        "type": "boolean"
+      },
+      "active": {
+        "readonly": false,
+        "required": false,
+        "string": "Active",
+        "type": "boolean"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.bed": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "bed_number": {
+        "readonly": false,
+        "required": true,
+        "string": "Bed Number",
+        "type": "char"
+      },
+      "ward_id": {
+        "readonly": false,
+        "relation": "healthplix.ward",
+        "required": true,
+        "string": "Ward",
+        "type": "many2one"
+      },
+      "bed_type": {
+        "readonly": false,
+        "required": false,
+        "string": "Bed Type",
+        "type": "selection"
+      },
+      "status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "charge": {
+        "readonly": false,
+        "required": false,
+        "string": "Bed Charge",
+        "type": "float"
+      },
+      "notes": {
+        "readonly": false,
+        "required": false,
+        "string": "Notes",
+        "type": "text"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.billing": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "bill_no": {
+        "readonly": true,
+        "required": false,
+        "string": "Bill Number",
+        "type": "char"
+      },
+      "patient_id": {
+        "readonly": false,
+        "relation": "healthplix.patient",
+        "required": true,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": false,
+        "string": "IPD Reference",
+        "type": "many2one"
+      },
+      "invoice_id": {
+        "readonly": true,
+        "relation": "account.move",
+        "required": false,
+        "string": "Invoice",
+        "type": "many2one"
+      },
+      "invoice_currency_id": {
+        "readonly": true,
+        "relation": "res.currency",
+        "required": false,
+        "string": "Invoice Currency",
+        "type": "many2one"
+      },
+      "invoice_amount_total": {
+        "readonly": true,
+        "required": false,
+        "string": "Invoice Total",
+        "type": "monetary"
+      },
+      "invoice_amount_paid": {
+        "readonly": true,
+        "required": false,
+        "string": "Amount Paid",
+        "type": "monetary"
+      },
+      "invoice_amount_due": {
+        "readonly": true,
+        "required": false,
+        "string": "Amount Due",
+        "type": "monetary"
+      },
+      "billing_line_ids": {
+        "readonly": false,
+        "relation": "healthplix.billing.line",
+        "required": false,
+        "string": "Billing Lines",
+        "type": "one2many"
+      },
+      "total_amount": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Amount",
+        "type": "float"
+      },
+      "status": {
+        "readonly": true,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "notes": {
+        "readonly": false,
+        "required": false,
+        "string": "Notes",
+        "type": "text"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.billing.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "billing_id": {
+        "readonly": false,
+        "relation": "healthplix.billing",
+        "required": false,
+        "string": "Billing",
+        "type": "many2one"
+      },
+      "line_type": {
+        "readonly": false,
+        "required": true,
+        "string": "Line Type",
+        "type": "selection"
+      },
+      "appointment_id": {
+        "readonly": true,
+        "relation": "healthplix.appointment",
+        "required": false,
+        "string": "Appointment",
+        "type": "many2one"
+      },
+      "lab_report_id": {
+        "readonly": true,
+        "relation": "healthplix.lab.report",
+        "required": false,
+        "string": "Lab Report",
+        "type": "many2one"
+      },
+      "ipd_id": {
+        "readonly": true,
+        "relation": "healthplix.ipd",
+        "required": false,
+        "string": "IPD",
+        "type": "many2one"
+      },
+      "ipd_cost_line_id": {
+        "readonly": true,
+        "relation": "healthplix.ipd.cost.line",
+        "required": false,
+        "string": "IPD Cost Line",
+        "type": "many2one"
+      },
+      "prescription_line_id": {
+        "readonly": true,
+        "relation": "healthplix.prescription.line",
+        "required": false,
+        "string": "Prescription Line",
+        "type": "many2one"
+      },
+      "product_id": {
+        "readonly": false,
+        "relation": "product.product",
+        "required": false,
+        "string": "Service / Medicine",
+        "type": "many2one"
+      },
+      "description": {
+        "readonly": false,
+        "required": false,
+        "string": "Description",
+        "type": "char"
+      },
+      "quantity": {
+        "readonly": false,
+        "required": false,
+        "string": "Quantity",
+        "type": "float"
+      },
+      "price": {
+        "readonly": false,
+        "required": false,
+        "string": "Unit Price",
+        "type": "float"
+      },
+      "subtotal": {
+        "readonly": true,
+        "required": false,
+        "string": "Subtotal",
+        "type": "float"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.doctor": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "name": {
+        "readonly": false,
+        "required": true,
+        "string": "Name",
+        "type": "char"
+      },
+      "image": {
+        "readonly": false,
+        "required": false,
+        "string": "Photo",
+        "type": "binary"
+      },
+      "phone": {
+        "readonly": false,
+        "required": false,
+        "string": "Phone",
+        "type": "char"
+      },
+      "email": {
+        "readonly": false,
+        "required": false,
+        "string": "Email",
+        "type": "char"
+      },
+      "address": {
+        "readonly": false,
+        "required": false,
+        "string": "Address",
+        "type": "text"
+      },
+      "user_id": {
+        "readonly": false,
+        "relation": "res.users",
+        "required": false,
+        "string": "Portal User",
+        "type": "many2one"
+      },
+      "specialization": {
+        "readonly": false,
+        "required": false,
+        "string": "Specialization",
+        "type": "char"
+      },
+      "experience": {
+        "readonly": false,
+        "required": false,
+        "string": "Experience (Years)",
+        "type": "integer"
+      },
+      "active": {
+        "readonly": false,
+        "required": false,
+        "string": "Active",
+        "type": "boolean"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.fluid.chart": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "activity_ids": {
+        "readonly": false,
+        "relation": "mail.activity",
+        "required": false,
+        "string": "Activities",
+        "type": "one2many"
+      },
+      "activity_state": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity State",
+        "type": "selection"
+      },
+      "activity_user_id": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Responsible User",
+        "type": "many2one"
+      },
+      "activity_type_id": {
+        "readonly": false,
+        "relation": "mail.activity.type",
+        "required": false,
+        "string": "Next Activity Type",
+        "type": "many2one"
+      },
+      "activity_type_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Type Icon",
+        "type": "char"
+      },
+      "activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "Next Activity Deadline",
+        "type": "date"
+      },
+      "my_activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "My Activity Deadline",
+        "type": "date"
+      },
+      "activity_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Activity Summary",
+        "type": "char"
+      },
+      "activity_exception_decoration": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Exception Decoration",
+        "type": "selection"
+      },
+      "activity_exception_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Icon",
+        "type": "char"
+      },
+      "message_is_follower": {
+        "readonly": true,
+        "required": false,
+        "string": "Is Follower",
+        "type": "boolean"
+      },
+      "message_follower_ids": {
+        "readonly": false,
+        "relation": "mail.followers",
+        "required": false,
+        "string": "Followers",
+        "type": "one2many"
+      },
+      "message_partner_ids": {
+        "readonly": false,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Followers (Partners)",
+        "type": "many2many"
+      },
+      "message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Messages",
+        "type": "one2many"
+      },
+      "has_message": {
+        "readonly": true,
+        "required": false,
+        "string": "Has Message",
+        "type": "boolean"
+      },
+      "message_needaction": {
+        "readonly": true,
+        "required": false,
+        "string": "Action Needed",
+        "type": "boolean"
+      },
+      "message_needaction_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of Actions",
+        "type": "integer"
+      },
+      "message_has_error": {
+        "readonly": true,
+        "required": false,
+        "string": "Message Delivery error",
+        "type": "boolean"
+      },
+      "message_has_error_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of errors",
+        "type": "integer"
+      },
+      "message_attachment_count": {
+        "readonly": true,
+        "required": false,
+        "string": "Attachment Count",
+        "type": "integer"
+      },
+      "website_message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Website Messages",
+        "type": "one2many"
+      },
+      "message_has_sms_error": {
+        "readonly": true,
+        "required": false,
+        "string": "SMS Delivery error",
+        "type": "boolean"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD Record",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "doctor_id": {
+        "readonly": true,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Consultant",
+        "type": "many2one"
+      },
+      "ward_id": {
+        "readonly": true,
+        "relation": "healthplix.ward",
+        "required": false,
+        "string": "Ward",
+        "type": "many2one"
+      },
+      "bed_id": {
+        "readonly": true,
+        "relation": "healthplix.bed",
+        "required": false,
+        "string": "Bed",
+        "type": "many2one"
+      },
+      "chart_date": {
+        "readonly": false,
+        "required": true,
+        "string": "Date",
+        "type": "date"
+      },
+      "age_sex": {
+        "readonly": true,
+        "required": false,
+        "string": "Age / Sex",
+        "type": "char"
+      },
+      "uhid_no": {
+        "readonly": true,
+        "required": false,
+        "string": "UHID No.",
+        "type": "char"
+      },
+      "bed_room_no": {
+        "readonly": true,
+        "required": false,
+        "string": "Bed / Room No.",
+        "type": "char"
+      },
+      "body_weight": {
+        "readonly": false,
+        "required": false,
+        "string": "Body Weight (Kg)",
+        "type": "float"
+      },
+      "day_number": {
+        "readonly": true,
+        "required": false,
+        "string": "Day No.",
+        "type": "integer"
+      },
+      "fluid_line_ids": {
+        "readonly": false,
+        "relation": "healthplix.fluid.chart.line",
+        "required": false,
+        "string": "Fluid Entries",
+        "type": "one2many"
+      },
+      "total_oral_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Oral (ml)",
+        "type": "float"
+      },
+      "total_iv_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Total IV (ml)",
+        "type": "float"
+      },
+      "total_intake_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Intake (ml)",
+        "type": "float"
+      },
+      "total_aspiration_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Aspiration (ml)",
+        "type": "float"
+      },
+      "total_drain_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Drain (ml)",
+        "type": "float"
+      },
+      "total_urine_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Urine (ml)",
+        "type": "float"
+      },
+      "total_output_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Output (ml)",
+        "type": "float"
+      },
+      "fluid_balance_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Fluid Balance (ml)",
+        "type": "float"
+      },
+      "display_name_computed": {
+        "readonly": true,
+        "required": false,
+        "string": "Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.fluid.chart.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "chart_id": {
+        "readonly": false,
+        "relation": "healthplix.fluid.chart",
+        "required": true,
+        "string": "Chart",
+        "type": "many2one"
+      },
+      "ipd_id": {
+        "readonly": true,
+        "relation": "healthplix.ipd",
+        "required": false,
+        "string": "IPD",
+        "type": "many2one"
+      },
+      "time_slot": {
+        "readonly": false,
+        "required": true,
+        "string": "Time",
+        "type": "selection"
+      },
+      "oral_rt_ml": {
+        "readonly": false,
+        "required": false,
+        "string": "Oral / R.T. Feeding (ml)",
+        "type": "float"
+      },
+      "iv_fluid_description": {
+        "readonly": false,
+        "required": false,
+        "string": "IV Fluid / Plasma / Blood / Drug",
+        "type": "char"
+      },
+      "iv_fluid_ml": {
+        "readonly": false,
+        "required": false,
+        "string": "IV Volume (ml)",
+        "type": "float"
+      },
+      "gastric_aspiration_vomit_ml": {
+        "readonly": false,
+        "required": false,
+        "string": "Gastric Aspiration / Vomit (ml)",
+        "type": "float"
+      },
+      "urine_ml": {
+        "readonly": false,
+        "required": false,
+        "string": "Urine (ml)",
+        "type": "float"
+      },
+      "drain_ml": {
+        "readonly": false,
+        "required": false,
+        "string": "Others / Drain (ml)",
+        "type": "float"
+      },
+      "row_intake_total": {
+        "readonly": true,
+        "required": false,
+        "string": "Row Intake Total",
+        "type": "float"
+      },
+      "row_output_total": {
+        "readonly": true,
+        "required": false,
+        "string": "Row Output Total",
+        "type": "float"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.ipd": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "activity_ids": {
+        "readonly": false,
+        "relation": "mail.activity",
+        "required": false,
+        "string": "Activities",
+        "type": "one2many"
+      },
+      "activity_state": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity State",
+        "type": "selection"
+      },
+      "activity_user_id": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Responsible User",
+        "type": "many2one"
+      },
+      "activity_type_id": {
+        "readonly": false,
+        "relation": "mail.activity.type",
+        "required": false,
+        "string": "Next Activity Type",
+        "type": "many2one"
+      },
+      "activity_type_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Type Icon",
+        "type": "char"
+      },
+      "activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "Next Activity Deadline",
+        "type": "date"
+      },
+      "my_activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "My Activity Deadline",
+        "type": "date"
+      },
+      "activity_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Activity Summary",
+        "type": "char"
+      },
+      "activity_exception_decoration": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Exception Decoration",
+        "type": "selection"
+      },
+      "activity_exception_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Icon",
+        "type": "char"
+      },
+      "message_is_follower": {
+        "readonly": true,
+        "required": false,
+        "string": "Is Follower",
+        "type": "boolean"
+      },
+      "message_follower_ids": {
+        "readonly": false,
+        "relation": "mail.followers",
+        "required": false,
+        "string": "Followers",
+        "type": "one2many"
+      },
+      "message_partner_ids": {
+        "readonly": false,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Followers (Partners)",
+        "type": "many2many"
+      },
+      "message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Messages",
+        "type": "one2many"
+      },
+      "has_message": {
+        "readonly": true,
+        "required": false,
+        "string": "Has Message",
+        "type": "boolean"
+      },
+      "message_needaction": {
+        "readonly": true,
+        "required": false,
+        "string": "Action Needed",
+        "type": "boolean"
+      },
+      "message_needaction_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of Actions",
+        "type": "integer"
+      },
+      "message_has_error": {
+        "readonly": true,
+        "required": false,
+        "string": "Message Delivery error",
+        "type": "boolean"
+      },
+      "message_has_error_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of errors",
+        "type": "integer"
+      },
+      "message_attachment_count": {
+        "readonly": true,
+        "required": false,
+        "string": "Attachment Count",
+        "type": "integer"
+      },
+      "website_message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Website Messages",
+        "type": "one2many"
+      },
+      "message_has_sms_error": {
+        "readonly": true,
+        "required": false,
+        "string": "SMS Delivery error",
+        "type": "boolean"
+      },
+      "uid": {
+        "readonly": true,
+        "required": false,
+        "string": "IPD Reference",
+        "type": "char"
+      },
+      "patient_id": {
+        "readonly": false,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "patient_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Patient Name",
+        "type": "char"
+      },
+      "patient_phone": {
+        "readonly": false,
+        "required": false,
+        "string": "Phone",
+        "type": "char"
+      },
+      "patient_email": {
+        "readonly": false,
+        "required": false,
+        "string": "Email",
+        "type": "char"
+      },
+      "patient_gender": {
+        "readonly": false,
+        "required": false,
+        "string": "Gender",
+        "type": "selection"
+      },
+      "patient_dob": {
+        "readonly": false,
+        "required": false,
+        "string": "Date of Birth",
+        "type": "date"
+      },
+      "patient_address": {
+        "readonly": false,
+        "required": false,
+        "string": "Address",
+        "type": "text"
+      },
+      "patient_blood_type": {
+        "readonly": false,
+        "required": false,
+        "string": "Blood Type",
+        "type": "selection"
+      },
+      "patient_identity_document_type": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document Type",
+        "type": "selection"
+      },
+      "patient_identity_document_number": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document Number",
+        "type": "char"
+      },
+      "patient_referred_by": {
+        "readonly": false,
+        "required": false,
+        "string": "Referred By",
+        "type": "char"
+      },
+      "patient_image": {
+        "readonly": false,
+        "required": false,
+        "string": "Photo",
+        "type": "binary"
+      },
+      "patient_identity_document_attachment": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document (PDF/Image)",
+        "type": "binary"
+      },
+      "patient_identity_document_attachment_filename": {
+        "readonly": false,
+        "required": false,
+        "string": "Attachment Filename",
+        "type": "char"
+      },
+      "doctor_id": {
+        "readonly": false,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Doctor Incharge",
+        "type": "many2one"
+      },
+      "admission_date": {
+        "readonly": false,
+        "required": false,
+        "string": "Admission Date",
+        "type": "datetime"
+      },
+      "discharge_date": {
+        "readonly": false,
+        "required": false,
+        "string": "Discharge Date",
+        "type": "datetime"
+      },
+      "bed_id": {
+        "readonly": false,
+        "relation": "healthplix.bed",
+        "required": false,
+        "string": "Bed",
+        "type": "many2one"
+      },
+      "ward_id": {
+        "readonly": true,
+        "relation": "healthplix.ward",
+        "required": false,
+        "string": "Ward",
+        "type": "many2one"
+      },
+      "disease": {
+        "readonly": false,
+        "required": false,
+        "string": "Diagnosis",
+        "type": "text"
+      },
+      "notes": {
+        "readonly": false,
+        "required": false,
+        "string": "Notes",
+        "type": "text"
+      },
+      "chief_ailment": {
+        "readonly": false,
+        "required": false,
+        "string": "Chief Ailment / Admission",
+        "type": "text"
+      },
+      "investigation": {
+        "readonly": false,
+        "required": false,
+        "string": "Investigation",
+        "type": "text"
+      },
+      "discharge_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Discharge Status",
+        "type": "selection"
+      },
+      "general_condition": {
+        "readonly": false,
+        "required": false,
+        "string": "General Condition",
+        "type": "text"
+      },
+      "systemic_review": {
+        "readonly": false,
+        "required": false,
+        "string": "Systemic Review",
+        "type": "text"
+      },
+      "physical_activity": {
+        "readonly": false,
+        "required": false,
+        "string": "Physical Activity",
+        "type": "text"
+      },
+      "condition_at_discharge": {
+        "readonly": false,
+        "required": false,
+        "string": "Condition at Discharge",
+        "type": "text"
+      },
+      "next_opd_appointment_id": {
+        "readonly": false,
+        "relation": "healthplix.appointment",
+        "required": false,
+        "string": "Next OPD Appointment",
+        "type": "many2one"
+      },
+      "status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "is_billed": {
+        "readonly": true,
+        "required": false,
+        "string": "Already Billed",
+        "type": "boolean"
+      },
+      "is_paid": {
+        "readonly": true,
+        "required": false,
+        "string": "Paid in Billing",
+        "type": "boolean"
+      },
+      "ipd_cost_line_ids": {
+        "readonly": false,
+        "relation": "healthplix.ipd.cost.line",
+        "required": false,
+        "string": "Additional Charges",
+        "type": "one2many"
+      },
+      "days_admitted": {
+        "readonly": true,
+        "required": false,
+        "string": "Days Admitted",
+        "type": "integer"
+      },
+      "bed_charge_per_day": {
+        "readonly": true,
+        "required": false,
+        "string": "Bed Charge / Day",
+        "type": "float"
+      },
+      "total_bed_cost": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Bed Cost",
+        "type": "float"
+      },
+      "total_additional_cost": {
+        "readonly": true,
+        "required": false,
+        "string": "Additional Charges Total",
+        "type": "float"
+      },
+      "total_ipd_cost": {
+        "readonly": true,
+        "required": false,
+        "string": "Total IPD Cost",
+        "type": "float"
+      },
+      "registration_ids": {
+        "readonly": false,
+        "relation": "healthplix.ipd.registration",
+        "required": false,
+        "string": "Registrations",
+        "type": "one2many"
+      },
+      "registration_count": {
+        "readonly": true,
+        "required": false,
+        "string": "# Registrations",
+        "type": "integer"
+      },
+      "ipd_history_ids": {
+        "readonly": false,
+        "relation": "healthplix.ipd.history",
+        "required": false,
+        "string": "History & Physical Records",
+        "type": "one2many"
+      },
+      "ipd_history_count": {
+        "readonly": true,
+        "required": false,
+        "string": "# H&P Records",
+        "type": "integer"
+      },
+      "treatment_sheet_ids": {
+        "readonly": false,
+        "relation": "healthplix.treatment.sheet",
+        "required": false,
+        "string": "Treatment Sheets",
+        "type": "one2many"
+      },
+      "treatment_sheet_count": {
+        "readonly": true,
+        "required": false,
+        "string": "# Treatment Sheets",
+        "type": "integer"
+      },
+      "preop_checklist_ids": {
+        "readonly": false,
+        "relation": "healthplix.preop.checklist",
+        "required": false,
+        "string": "Pre-Op Checklists",
+        "type": "one2many"
+      },
+      "preop_checklist_count": {
+        "readonly": true,
+        "required": false,
+        "string": "# Pre-Op Checklists",
+        "type": "integer"
+      },
+      "vital_chart_ids": {
+        "readonly": false,
+        "relation": "healthplix.vital.chart",
+        "required": false,
+        "string": "Vital Sign Charts",
+        "type": "one2many"
+      },
+      "vital_chart_count": {
+        "readonly": true,
+        "required": false,
+        "string": "# Vital Charts",
+        "type": "integer"
+      },
+      "fluid_chart_ids": {
+        "readonly": false,
+        "relation": "healthplix.fluid.chart",
+        "required": false,
+        "string": "Fluid Balance Charts",
+        "type": "one2many"
+      },
+      "fluid_chart_count": {
+        "readonly": true,
+        "required": false,
+        "string": "# Fluid Charts",
+        "type": "integer"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      },
+      "progress_sheet_ids": {
+        "readonly": false,
+        "relation": "healthplix.ipd.progress.sheet",
+        "required": false,
+        "string": "Progress Sheets",
+        "type": "one2many"
+      },
+      "progress_sheet_count": {
+        "readonly": true,
+        "required": false,
+        "string": "# Progress Sheets",
+        "type": "integer"
+      }
+    },
+    "healthplix.ipd.cost.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD",
+        "type": "many2one"
+      },
+      "charge_type": {
+        "readonly": false,
+        "required": true,
+        "string": "Charge Type",
+        "type": "selection"
+      },
+      "description": {
+        "readonly": false,
+        "required": true,
+        "string": "Description",
+        "type": "char"
+      },
+      "quantity": {
+        "readonly": false,
+        "required": false,
+        "string": "Qty",
+        "type": "float"
+      },
+      "unit_cost": {
+        "readonly": false,
+        "required": false,
+        "string": "Unit Cost",
+        "type": "float"
+      },
+      "subtotal": {
+        "readonly": true,
+        "required": false,
+        "string": "Subtotal",
+        "type": "float"
+      },
+      "is_billed": {
+        "readonly": true,
+        "required": false,
+        "string": "Already Billed",
+        "type": "boolean"
+      },
+      "is_paid": {
+        "readonly": true,
+        "required": false,
+        "string": "Paid in Billing",
+        "type": "boolean"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.ipd.discharge.wizard": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "ipd_id": {
+        "readonly": true,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD Record",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "chief_ailment": {
+        "readonly": false,
+        "required": false,
+        "string": "Chief Ailment / Admission",
+        "type": "text"
+      },
+      "investigation": {
+        "readonly": false,
+        "required": false,
+        "string": "Investigation",
+        "type": "text"
+      },
+      "discharge_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Discharge Status",
+        "type": "selection"
+      },
+      "general_condition": {
+        "readonly": false,
+        "required": false,
+        "string": "General Condition",
+        "type": "text"
+      },
+      "systemic_review": {
+        "readonly": false,
+        "required": false,
+        "string": "Systemic Review",
+        "type": "text"
+      },
+      "physical_activity": {
+        "readonly": false,
+        "required": false,
+        "string": "Physical Activity",
+        "type": "text"
+      },
+      "condition_at_discharge": {
+        "readonly": false,
+        "required": false,
+        "string": "Condition at Discharge",
+        "type": "text"
+      },
+      "next_opd_appointment_id": {
+        "readonly": false,
+        "relation": "healthplix.appointment",
+        "required": false,
+        "string": "Next OPD Appointment",
+        "type": "many2one"
+      },
+      "missing_fields": {
+        "readonly": true,
+        "required": false,
+        "string": "Missing fields",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.ipd.history": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "activity_ids": {
+        "readonly": false,
+        "relation": "mail.activity",
+        "required": false,
+        "string": "Activities",
+        "type": "one2many"
+      },
+      "activity_state": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity State",
+        "type": "selection"
+      },
+      "activity_user_id": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Responsible User",
+        "type": "many2one"
+      },
+      "activity_type_id": {
+        "readonly": false,
+        "relation": "mail.activity.type",
+        "required": false,
+        "string": "Next Activity Type",
+        "type": "many2one"
+      },
+      "activity_type_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Type Icon",
+        "type": "char"
+      },
+      "activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "Next Activity Deadline",
+        "type": "date"
+      },
+      "my_activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "My Activity Deadline",
+        "type": "date"
+      },
+      "activity_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Activity Summary",
+        "type": "char"
+      },
+      "activity_exception_decoration": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Exception Decoration",
+        "type": "selection"
+      },
+      "activity_exception_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Icon",
+        "type": "char"
+      },
+      "message_is_follower": {
+        "readonly": true,
+        "required": false,
+        "string": "Is Follower",
+        "type": "boolean"
+      },
+      "message_follower_ids": {
+        "readonly": false,
+        "relation": "mail.followers",
+        "required": false,
+        "string": "Followers",
+        "type": "one2many"
+      },
+      "message_partner_ids": {
+        "readonly": false,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Followers (Partners)",
+        "type": "many2many"
+      },
+      "message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Messages",
+        "type": "one2many"
+      },
+      "has_message": {
+        "readonly": true,
+        "required": false,
+        "string": "Has Message",
+        "type": "boolean"
+      },
+      "message_needaction": {
+        "readonly": true,
+        "required": false,
+        "string": "Action Needed",
+        "type": "boolean"
+      },
+      "message_needaction_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of Actions",
+        "type": "integer"
+      },
+      "message_has_error": {
+        "readonly": true,
+        "required": false,
+        "string": "Message Delivery error",
+        "type": "boolean"
+      },
+      "message_has_error_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of errors",
+        "type": "integer"
+      },
+      "message_attachment_count": {
+        "readonly": true,
+        "required": false,
+        "string": "Attachment Count",
+        "type": "integer"
+      },
+      "website_message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Website Messages",
+        "type": "one2many"
+      },
+      "message_has_sms_error": {
+        "readonly": true,
+        "required": false,
+        "string": "SMS Delivery error",
+        "type": "boolean"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD Record",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient Name",
+        "type": "many2one"
+      },
+      "uhid": {
+        "readonly": true,
+        "required": false,
+        "string": "UHID No.",
+        "type": "char"
+      },
+      "doctor_id": {
+        "readonly": true,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Consultant In-charge",
+        "type": "many2one"
+      },
+      "record_date": {
+        "readonly": false,
+        "required": false,
+        "string": "Date",
+        "type": "date"
+      },
+      "age": {
+        "readonly": false,
+        "required": false,
+        "string": "Age",
+        "type": "char"
+      },
+      "sex": {
+        "readonly": false,
+        "required": false,
+        "string": "Sex",
+        "type": "selection"
+      },
+      "weight": {
+        "readonly": false,
+        "required": false,
+        "string": "Weight (Kg)",
+        "type": "float"
+      },
+      "allergies": {
+        "readonly": false,
+        "required": false,
+        "string": "Allergies",
+        "type": "text"
+      },
+      "source_of_history": {
+        "readonly": false,
+        "required": false,
+        "string": "Source of History",
+        "type": "selection"
+      },
+      "source_of_history_other": {
+        "readonly": false,
+        "required": false,
+        "string": "Source (specify)",
+        "type": "char"
+      },
+      "presenting_complaints": {
+        "readonly": false,
+        "required": false,
+        "string": "Presenting Complaints",
+        "type": "text"
+      },
+      "history_present_illness": {
+        "readonly": false,
+        "required": false,
+        "string": "History of Present Illness",
+        "type": "text"
+      },
+      "past_medical_history": {
+        "readonly": false,
+        "required": false,
+        "string": "Past Medical History",
+        "type": "text"
+      },
+      "past_surgical_history": {
+        "readonly": false,
+        "required": false,
+        "string": "Past Surgical History",
+        "type": "text"
+      },
+      "drug_history": {
+        "readonly": false,
+        "required": false,
+        "string": "Drug / Medication History",
+        "type": "text"
+      },
+      "family_history": {
+        "readonly": false,
+        "required": false,
+        "string": "Family History",
+        "type": "text"
+      },
+      "personal_history": {
+        "readonly": false,
+        "required": false,
+        "string": "Personal / Social History",
+        "type": "text"
+      },
+      "menstrual_obstetric_history": {
+        "readonly": false,
+        "required": false,
+        "string": "Menstrual / Obstetric History",
+        "type": "text"
+      },
+      "immunisation_history": {
+        "readonly": false,
+        "required": false,
+        "string": "Immunisation History",
+        "type": "text"
+      },
+      "built_nourishment": {
+        "readonly": false,
+        "required": false,
+        "string": "Built & Nourishment",
+        "type": "selection"
+      },
+      "consciousness": {
+        "readonly": false,
+        "required": false,
+        "string": "Consciousness",
+        "type": "selection"
+      },
+      "pallor": {
+        "readonly": false,
+        "required": false,
+        "string": "Pallor",
+        "type": "selection"
+      },
+      "icterus": {
+        "readonly": false,
+        "required": false,
+        "string": "Icterus",
+        "type": "selection"
+      },
+      "cyanosis": {
+        "readonly": false,
+        "required": false,
+        "string": "Cyanosis",
+        "type": "selection"
+      },
+      "clubbing": {
+        "readonly": false,
+        "required": false,
+        "string": "Clubbing",
+        "type": "selection"
+      },
+      "lymphadenopathy": {
+        "readonly": false,
+        "required": false,
+        "string": "Lymphadenopathy",
+        "type": "selection"
+      },
+      "oedema": {
+        "readonly": false,
+        "required": false,
+        "string": "Oedema",
+        "type": "selection"
+      },
+      "bp_systolic": {
+        "readonly": false,
+        "required": false,
+        "string": "BP Systolic (mmHg)",
+        "type": "integer"
+      },
+      "bp_diastolic": {
+        "readonly": false,
+        "required": false,
+        "string": "BP Diastolic (mmHg)",
+        "type": "integer"
+      },
+      "pulse_rate": {
+        "readonly": false,
+        "required": false,
+        "string": "Pulse Rate (/min)",
+        "type": "integer"
+      },
+      "respiratory_rate": {
+        "readonly": false,
+        "required": false,
+        "string": "Respiratory Rate (/min)",
+        "type": "integer"
+      },
+      "temperature": {
+        "readonly": false,
+        "required": false,
+        "string": "Temperature (°F)",
+        "type": "float"
+      },
+      "spo2": {
+        "readonly": false,
+        "required": false,
+        "string": "SpO2 (%)",
+        "type": "float"
+      },
+      "random_blood_sugar": {
+        "readonly": false,
+        "required": false,
+        "string": "Random Blood Sugar (mg/dL)",
+        "type": "float"
+      },
+      "cvs_examination": {
+        "readonly": false,
+        "required": false,
+        "string": "Cardiovascular System (CVS)",
+        "type": "text"
+      },
+      "rs_examination": {
+        "readonly": false,
+        "required": false,
+        "string": "Respiratory System (RS)",
+        "type": "text"
+      },
+      "abdomen_examination": {
+        "readonly": false,
+        "required": false,
+        "string": "Abdomen",
+        "type": "text"
+      },
+      "cns_examination": {
+        "readonly": false,
+        "required": false,
+        "string": "Central Nervous System (CNS)",
+        "type": "text"
+      },
+      "local_examination": {
+        "readonly": false,
+        "required": false,
+        "string": "Local Examination",
+        "type": "text"
+      },
+      "provisional_diagnosis": {
+        "readonly": false,
+        "required": false,
+        "string": "Provisional Diagnosis",
+        "type": "text"
+      },
+      "investigations_planned": {
+        "readonly": false,
+        "required": false,
+        "string": "Investigations Planned",
+        "type": "text"
+      },
+      "treatment_plan": {
+        "readonly": false,
+        "required": false,
+        "string": "Treatment Plan / Management",
+        "type": "text"
+      },
+      "examining_doctor_id": {
+        "readonly": false,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Examined By",
+        "type": "many2one"
+      },
+      "examination_datetime": {
+        "readonly": false,
+        "required": false,
+        "string": "Examination Date & Time",
+        "type": "datetime"
+      },
+      "bp_display": {
+        "readonly": true,
+        "required": false,
+        "string": "Blood Pressure",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.ipd.progress.sheet": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Name",
+        "type": "char"
+      },
+      "activity_ids": {
+        "readonly": false,
+        "relation": "mail.activity",
+        "required": false,
+        "string": "Activities",
+        "type": "one2many"
+      },
+      "activity_state": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity State",
+        "type": "selection"
+      },
+      "activity_user_id": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Responsible User",
+        "type": "many2one"
+      },
+      "activity_type_id": {
+        "readonly": false,
+        "relation": "mail.activity.type",
+        "required": false,
+        "string": "Next Activity Type",
+        "type": "many2one"
+      },
+      "activity_type_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Type Icon",
+        "type": "char"
+      },
+      "activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "Next Activity Deadline",
+        "type": "date"
+      },
+      "my_activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "My Activity Deadline",
+        "type": "date"
+      },
+      "activity_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Activity Summary",
+        "type": "char"
+      },
+      "activity_exception_decoration": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Exception Decoration",
+        "type": "selection"
+      },
+      "activity_exception_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Icon",
+        "type": "char"
+      },
+      "message_is_follower": {
+        "readonly": true,
+        "required": false,
+        "string": "Is Follower",
+        "type": "boolean"
+      },
+      "message_follower_ids": {
+        "readonly": false,
+        "relation": "mail.followers",
+        "required": false,
+        "string": "Followers",
+        "type": "one2many"
+      },
+      "message_partner_ids": {
+        "readonly": false,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Followers (Partners)",
+        "type": "many2many"
+      },
+      "message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Messages",
+        "type": "one2many"
+      },
+      "has_message": {
+        "readonly": true,
+        "required": false,
+        "string": "Has Message",
+        "type": "boolean"
+      },
+      "message_needaction": {
+        "readonly": true,
+        "required": false,
+        "string": "Action Needed",
+        "type": "boolean"
+      },
+      "message_needaction_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of Actions",
+        "type": "integer"
+      },
+      "message_has_error": {
+        "readonly": true,
+        "required": false,
+        "string": "Message Delivery error",
+        "type": "boolean"
+      },
+      "message_has_error_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of errors",
+        "type": "integer"
+      },
+      "message_attachment_count": {
+        "readonly": true,
+        "required": false,
+        "string": "Attachment Count",
+        "type": "integer"
+      },
+      "website_message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Website Messages",
+        "type": "one2many"
+      },
+      "message_has_sms_error": {
+        "readonly": true,
+        "required": false,
+        "string": "SMS Delivery error",
+        "type": "boolean"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD Record",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "doctor_id": {
+        "readonly": true,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Doctor",
+        "type": "many2one"
+      },
+      "ward_id": {
+        "readonly": true,
+        "relation": "healthplix.ward",
+        "required": false,
+        "string": "Ward",
+        "type": "many2one"
+      },
+      "bed_id": {
+        "readonly": true,
+        "relation": "healthplix.bed",
+        "required": false,
+        "string": "Bed",
+        "type": "many2one"
+      },
+      "sheet_date": {
+        "readonly": false,
+        "required": true,
+        "string": "Date & Time",
+        "type": "datetime"
+      },
+      "recorded_by": {
+        "readonly": false,
+        "relation": "res.users",
+        "required": false,
+        "string": "Recorded By",
+        "type": "many2one"
+      },
+      "pain_score": {
+        "readonly": false,
+        "required": false,
+        "string": "Pain Score (0–10)",
+        "type": "integer"
+      },
+      "pain_location": {
+        "readonly": false,
+        "required": false,
+        "string": "Pain Location",
+        "type": "char"
+      },
+      "pain_character": {
+        "readonly": false,
+        "required": false,
+        "string": "Pain Character",
+        "type": "char"
+      },
+      "pain_radiation": {
+        "readonly": false,
+        "required": false,
+        "string": "Pain Radiation",
+        "type": "char"
+      },
+      "pain_aggravating_factors": {
+        "readonly": false,
+        "required": false,
+        "string": "Aggravating Factors",
+        "type": "text"
+      },
+      "subjective": {
+        "readonly": false,
+        "required": false,
+        "string": "S – Subjective",
+        "type": "text"
+      },
+      "objective": {
+        "readonly": false,
+        "required": false,
+        "string": "O – Objective",
+        "type": "text"
+      },
+      "assessment": {
+        "readonly": false,
+        "required": false,
+        "string": "A – Assessment",
+        "type": "text"
+      },
+      "plan": {
+        "readonly": false,
+        "required": false,
+        "string": "P – Plan",
+        "type": "text"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.ipd.registration": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "activity_ids": {
+        "readonly": false,
+        "relation": "mail.activity",
+        "required": false,
+        "string": "Activities",
+        "type": "one2many"
+      },
+      "activity_state": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity State",
+        "type": "selection"
+      },
+      "activity_user_id": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Responsible User",
+        "type": "many2one"
+      },
+      "activity_type_id": {
+        "readonly": false,
+        "relation": "mail.activity.type",
+        "required": false,
+        "string": "Next Activity Type",
+        "type": "many2one"
+      },
+      "activity_type_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Type Icon",
+        "type": "char"
+      },
+      "activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "Next Activity Deadline",
+        "type": "date"
+      },
+      "my_activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "My Activity Deadline",
+        "type": "date"
+      },
+      "activity_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Activity Summary",
+        "type": "char"
+      },
+      "activity_exception_decoration": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Exception Decoration",
+        "type": "selection"
+      },
+      "activity_exception_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Icon",
+        "type": "char"
+      },
+      "message_is_follower": {
+        "readonly": true,
+        "required": false,
+        "string": "Is Follower",
+        "type": "boolean"
+      },
+      "message_follower_ids": {
+        "readonly": false,
+        "relation": "mail.followers",
+        "required": false,
+        "string": "Followers",
+        "type": "one2many"
+      },
+      "message_partner_ids": {
+        "readonly": false,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Followers (Partners)",
+        "type": "many2many"
+      },
+      "message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Messages",
+        "type": "one2many"
+      },
+      "has_message": {
+        "readonly": true,
+        "required": false,
+        "string": "Has Message",
+        "type": "boolean"
+      },
+      "message_needaction": {
+        "readonly": true,
+        "required": false,
+        "string": "Action Needed",
+        "type": "boolean"
+      },
+      "message_needaction_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of Actions",
+        "type": "integer"
+      },
+      "message_has_error": {
+        "readonly": true,
+        "required": false,
+        "string": "Message Delivery error",
+        "type": "boolean"
+      },
+      "message_has_error_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of errors",
+        "type": "integer"
+      },
+      "message_attachment_count": {
+        "readonly": true,
+        "required": false,
+        "string": "Attachment Count",
+        "type": "integer"
+      },
+      "website_message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Website Messages",
+        "type": "one2many"
+      },
+      "message_has_sms_error": {
+        "readonly": true,
+        "required": false,
+        "string": "SMS Delivery error",
+        "type": "boolean"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD Record",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "registration_date": {
+        "readonly": false,
+        "required": false,
+        "string": "Date",
+        "type": "date"
+      },
+      "uhid_ipd_no": {
+        "readonly": true,
+        "required": false,
+        "string": "IPD No.",
+        "type": "char"
+      },
+      "uhid_no": {
+        "readonly": true,
+        "required": false,
+        "string": "UHID No.",
+        "type": "char"
+      },
+      "display_name_field": {
+        "readonly": true,
+        "required": false,
+        "string": "Registration No.",
+        "type": "char"
+      },
+      "patient_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Patient Name (Mr./Mrs./Miss)",
+        "type": "char"
+      },
+      "gender": {
+        "readonly": false,
+        "required": false,
+        "string": "Sex",
+        "type": "selection"
+      },
+      "marital_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Marital Status",
+        "type": "selection"
+      },
+      "father_husband_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Father's / Husband's Name",
+        "type": "char"
+      },
+      "mother_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Mother's Name",
+        "type": "char"
+      },
+      "dob": {
+        "readonly": false,
+        "required": false,
+        "string": "Date of Birth",
+        "type": "date"
+      },
+      "age": {
+        "readonly": true,
+        "required": false,
+        "string": "Age",
+        "type": "integer"
+      },
+      "blood_group": {
+        "readonly": false,
+        "required": false,
+        "string": "Blood Group",
+        "type": "selection"
+      },
+      "residential_address": {
+        "readonly": false,
+        "required": false,
+        "string": "Residential Address",
+        "type": "text"
+      },
+      "district": {
+        "readonly": false,
+        "required": false,
+        "string": "District",
+        "type": "char"
+      },
+      "state": {
+        "readonly": false,
+        "required": false,
+        "string": "State",
+        "type": "char"
+      },
+      "country": {
+        "readonly": false,
+        "required": false,
+        "string": "Country",
+        "type": "char"
+      },
+      "pin_code": {
+        "readonly": false,
+        "required": false,
+        "string": "Pin Code",
+        "type": "char"
+      },
+      "phone_residence": {
+        "readonly": false,
+        "required": false,
+        "string": "Tel. No. (R)",
+        "type": "char"
+      },
+      "phone_office": {
+        "readonly": false,
+        "required": false,
+        "string": "Tel. No. (O)",
+        "type": "char"
+      },
+      "mobile": {
+        "readonly": false,
+        "required": false,
+        "string": "Mobile",
+        "type": "char"
+      },
+      "email": {
+        "readonly": false,
+        "required": false,
+        "string": "E-mail ID",
+        "type": "char"
+      },
+      "nationality": {
+        "readonly": false,
+        "required": false,
+        "string": "Nationality",
+        "type": "char"
+      },
+      "identity_document_type": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document Type",
+        "type": "selection"
+      },
+      "id_no": {
+        "readonly": false,
+        "required": false,
+        "string": "ID No.",
+        "type": "char"
+      },
+      "religion": {
+        "readonly": false,
+        "required": false,
+        "string": "Religion",
+        "type": "char"
+      },
+      "occupation": {
+        "readonly": false,
+        "required": false,
+        "string": "Occupation",
+        "type": "char"
+      },
+      "passport_no": {
+        "readonly": false,
+        "required": false,
+        "string": "Passport No.",
+        "type": "char"
+      },
+      "visa_no": {
+        "readonly": false,
+        "required": false,
+        "string": "Visa No.",
+        "type": "char"
+      },
+      "visa_validity": {
+        "readonly": false,
+        "required": false,
+        "string": "Visa Validity",
+        "type": "date"
+      },
+      "consulting_doctor_id": {
+        "readonly": false,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Name of Doctor to be Consulted",
+        "type": "many2one"
+      },
+      "unit": {
+        "readonly": false,
+        "required": false,
+        "string": "Unit",
+        "type": "char"
+      },
+      "emergency_contact_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Emergency Contact Person",
+        "type": "char"
+      },
+      "emergency_relationship": {
+        "readonly": false,
+        "required": false,
+        "string": "Relationship",
+        "type": "char"
+      },
+      "emergency_contact_no": {
+        "readonly": false,
+        "required": false,
+        "string": "Emergency Contact No.",
+        "type": "char"
+      },
+      "emergency_local_address": {
+        "readonly": false,
+        "required": false,
+        "string": "Local Address",
+        "type": "text"
+      },
+      "reference_source": {
+        "readonly": false,
+        "required": false,
+        "string": "Reference Source",
+        "type": "selection"
+      },
+      "referring_doctor_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Referring Doctor / Person Name",
+        "type": "char"
+      },
+      "referring_doctor_address": {
+        "readonly": false,
+        "required": false,
+        "string": "Referring Doctor / Person Address",
+        "type": "text"
+      },
+      "referring_doctor_tel": {
+        "readonly": false,
+        "required": false,
+        "string": "Referring Doctor Tel.",
+        "type": "char"
+      },
+      "preferred_language": {
+        "readonly": false,
+        "required": false,
+        "string": "Preferred Language of Communication",
+        "type": "char"
+      },
+      "education": {
+        "readonly": false,
+        "required": false,
+        "string": "Education",
+        "type": "char"
+      },
+      "known_allergies": {
+        "readonly": false,
+        "required": false,
+        "string": "Known Allergies, if any",
+        "type": "text"
+      },
+      "procedure_completed_by": {
+        "readonly": false,
+        "required": false,
+        "string": "Procedure Completed By",
+        "type": "char"
+      },
+      "ec_no": {
+        "readonly": false,
+        "required": false,
+        "string": "EC No.",
+        "type": "char"
+      },
+      "counter": {
+        "readonly": false,
+        "required": false,
+        "string": "Counter",
+        "type": "char"
+      },
+      "consent_accepted": {
+        "readonly": false,
+        "required": false,
+        "string": "General Consent for Treatment Accepted",
+        "type": "boolean"
+      },
+      "attendant_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Attendant / Relative Name",
+        "type": "char"
+      },
+      "relationship_with_patient": {
+        "readonly": false,
+        "required": false,
+        "string": "Relationship with Patient",
+        "type": "char"
+      },
+      "state_reg": {
+        "readonly": false,
+        "required": false,
+        "string": "Registration State",
+        "type": "selection"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.lab.report": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "name": {
+        "readonly": true,
+        "required": true,
+        "string": "Report Ref",
+        "type": "char"
+      },
+      "patient_id": {
+        "readonly": false,
+        "relation": "healthplix.patient",
+        "required": true,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "date": {
+        "readonly": false,
+        "required": true,
+        "string": "Report Date",
+        "type": "datetime"
+      },
+      "referred_by": {
+        "readonly": false,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Doctor",
+        "type": "many2one"
+      },
+      "test_type_id": {
+        "readonly": false,
+        "relation": "healthplix.lab.test.template",
+        "required": false,
+        "string": "Test Type",
+        "type": "many2one"
+      },
+      "lab_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Lab Name",
+        "type": "char"
+      },
+      "lab_cost": {
+        "readonly": false,
+        "required": false,
+        "string": "Lab Cost",
+        "type": "float"
+      },
+      "diagnosis": {
+        "readonly": false,
+        "required": false,
+        "string": "Diagnosis / Remarks",
+        "type": "text"
+      },
+      "report_image": {
+        "readonly": false,
+        "required": false,
+        "string": "Upload Report (Image/Scan)",
+        "type": "binary"
+      },
+      "report_image_filename": {
+        "readonly": false,
+        "required": false,
+        "string": "Filename",
+        "type": "char"
+      },
+      "report_pdf": {
+        "readonly": false,
+        "required": false,
+        "string": "Upload Report (PDF)",
+        "type": "binary"
+      },
+      "report_pdf_filename": {
+        "readonly": false,
+        "required": false,
+        "string": "PDF Filename",
+        "type": "char"
+      },
+      "state": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "is_billed": {
+        "readonly": true,
+        "required": false,
+        "string": "Already Billed",
+        "type": "boolean"
+      },
+      "is_paid": {
+        "readonly": true,
+        "required": false,
+        "string": "Paid in Billing",
+        "type": "boolean"
+      },
+      "line_ids": {
+        "readonly": false,
+        "relation": "healthplix.lab.report.line",
+        "required": false,
+        "string": "Test Results",
+        "type": "one2many"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.lab.report.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "report_id": {
+        "readonly": false,
+        "relation": "healthplix.lab.report",
+        "required": true,
+        "string": "Report",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "group_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Group (e.g. HAEMATOLOGY)",
+        "type": "char"
+      },
+      "test_name": {
+        "readonly": false,
+        "required": true,
+        "string": "Test Name",
+        "type": "char"
+      },
+      "test_code": {
+        "readonly": false,
+        "required": false,
+        "string": "Code",
+        "type": "char"
+      },
+      "result": {
+        "readonly": false,
+        "required": false,
+        "string": "Result",
+        "type": "char"
+      },
+      "normal_value": {
+        "readonly": false,
+        "required": false,
+        "string": "Normal Value",
+        "type": "char"
+      },
+      "unit": {
+        "readonly": false,
+        "required": false,
+        "string": "Unit (e.g. gm/dl)",
+        "type": "char"
+      },
+      "remark": {
+        "readonly": false,
+        "required": false,
+        "string": "Remark",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.lab.test.template": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "name": {
+        "readonly": false,
+        "required": true,
+        "string": "Test Type",
+        "type": "char"
+      },
+      "code": {
+        "readonly": false,
+        "required": false,
+        "string": "Code",
+        "type": "char"
+      },
+      "line_ids": {
+        "readonly": false,
+        "relation": "healthplix.lab.test.template.line",
+        "required": false,
+        "string": "Test Parameters",
+        "type": "one2many"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.lab.test.template.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "template_id": {
+        "readonly": false,
+        "relation": "healthplix.lab.test.template",
+        "required": true,
+        "string": "Template",
+        "type": "many2one"
+      },
+      "sequence": {
+        "readonly": false,
+        "required": false,
+        "string": "Sequence",
+        "type": "integer"
+      },
+      "group_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Group",
+        "type": "char"
+      },
+      "test_name": {
+        "readonly": false,
+        "required": true,
+        "string": "Test Name",
+        "type": "char"
+      },
+      "normal_value": {
+        "readonly": false,
+        "required": false,
+        "string": "Normal Value",
+        "type": "char"
+      },
+      "unit": {
+        "readonly": false,
+        "required": false,
+        "string": "Unit",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.patient": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "uid": {
+        "readonly": true,
+        "required": false,
+        "string": "Patient UHID",
+        "type": "char"
+      },
+      "name": {
+        "readonly": false,
+        "required": true,
+        "string": "Name",
+        "type": "char"
+      },
+      "image": {
+        "readonly": false,
+        "required": false,
+        "string": "Photo",
+        "type": "binary"
+      },
+      "blood_type": {
+        "readonly": false,
+        "required": false,
+        "string": "Blood Type",
+        "type": "selection"
+      },
+      "identity_document_type": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document Type",
+        "type": "selection"
+      },
+      "identity_document_number": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document Number",
+        "type": "char"
+      },
+      "identity_document_attachment": {
+        "readonly": false,
+        "required": false,
+        "string": "ID Document (PDF/Image)",
+        "type": "binary"
+      },
+      "identity_document_attachment_filename": {
+        "readonly": false,
+        "required": false,
+        "string": "Attachment Filename",
+        "type": "char"
+      },
+      "phone": {
+        "readonly": false,
+        "required": false,
+        "string": "Phone",
+        "type": "char"
+      },
+      "email": {
+        "readonly": false,
+        "required": false,
+        "string": "Email",
+        "type": "char"
+      },
+      "address": {
+        "readonly": false,
+        "required": false,
+        "string": "Address",
+        "type": "text"
+      },
+      "gender": {
+        "readonly": false,
+        "required": false,
+        "string": "Gender",
+        "type": "selection"
+      },
+      "dob": {
+        "readonly": false,
+        "required": false,
+        "string": "Date of Birth",
+        "type": "date"
+      },
+      "active": {
+        "readonly": false,
+        "required": false,
+        "string": "Active",
+        "type": "boolean"
+      },
+      "partner_id": {
+        "readonly": true,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Customer",
+        "type": "many2one"
+      },
+      "user_id": {
+        "readonly": false,
+        "relation": "res.users",
+        "required": false,
+        "string": "Portal User",
+        "type": "many2one"
+      },
+      "prescription_header_ids": {
+        "readonly": false,
+        "relation": "healthplix.prescription",
+        "required": false,
+        "string": "Prescriptions",
+        "type": "one2many"
+      },
+      "lab_report_ids": {
+        "readonly": false,
+        "relation": "healthplix.lab.report",
+        "required": false,
+        "string": "Lab Reports",
+        "type": "one2many"
+      },
+      "ipd_ids": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": false,
+        "string": "IPD Details",
+        "type": "one2many"
+      },
+      "appointment_ids": {
+        "readonly": false,
+        "relation": "healthplix.appointment",
+        "required": false,
+        "string": "Appointments",
+        "type": "one2many"
+      },
+      "billing_ids": {
+        "readonly": false,
+        "relation": "healthplix.billing",
+        "required": false,
+        "string": "Billings",
+        "type": "one2many"
+      },
+      "treatment_plan_ids": {
+        "readonly": false,
+        "relation": "healthplix.treatment.plan",
+        "required": false,
+        "string": "Treatment Plans",
+        "type": "one2many"
+      },
+      "referred_by": {
+        "readonly": false,
+        "required": false,
+        "string": "Referred By",
+        "type": "char"
+      },
+      "related_doctor_ids": {
+        "readonly": true,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Related Doctors",
+        "type": "many2many"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.preop.checklist": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "activity_ids": {
+        "readonly": false,
+        "relation": "mail.activity",
+        "required": false,
+        "string": "Activities",
+        "type": "one2many"
+      },
+      "activity_state": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity State",
+        "type": "selection"
+      },
+      "activity_user_id": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Responsible User",
+        "type": "many2one"
+      },
+      "activity_type_id": {
+        "readonly": false,
+        "relation": "mail.activity.type",
+        "required": false,
+        "string": "Next Activity Type",
+        "type": "many2one"
+      },
+      "activity_type_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Type Icon",
+        "type": "char"
+      },
+      "activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "Next Activity Deadline",
+        "type": "date"
+      },
+      "my_activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "My Activity Deadline",
+        "type": "date"
+      },
+      "activity_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Activity Summary",
+        "type": "char"
+      },
+      "activity_exception_decoration": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Exception Decoration",
+        "type": "selection"
+      },
+      "activity_exception_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Icon",
+        "type": "char"
+      },
+      "message_is_follower": {
+        "readonly": true,
+        "required": false,
+        "string": "Is Follower",
+        "type": "boolean"
+      },
+      "message_follower_ids": {
+        "readonly": false,
+        "relation": "mail.followers",
+        "required": false,
+        "string": "Followers",
+        "type": "one2many"
+      },
+      "message_partner_ids": {
+        "readonly": false,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Followers (Partners)",
+        "type": "many2many"
+      },
+      "message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Messages",
+        "type": "one2many"
+      },
+      "has_message": {
+        "readonly": true,
+        "required": false,
+        "string": "Has Message",
+        "type": "boolean"
+      },
+      "message_needaction": {
+        "readonly": true,
+        "required": false,
+        "string": "Action Needed",
+        "type": "boolean"
+      },
+      "message_needaction_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of Actions",
+        "type": "integer"
+      },
+      "message_has_error": {
+        "readonly": true,
+        "required": false,
+        "string": "Message Delivery error",
+        "type": "boolean"
+      },
+      "message_has_error_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of errors",
+        "type": "integer"
+      },
+      "message_attachment_count": {
+        "readonly": true,
+        "required": false,
+        "string": "Attachment Count",
+        "type": "integer"
+      },
+      "website_message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Website Messages",
+        "type": "one2many"
+      },
+      "message_has_sms_error": {
+        "readonly": true,
+        "required": false,
+        "string": "SMS Delivery error",
+        "type": "boolean"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD Record",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient Name",
+        "type": "many2one"
+      },
+      "uhid": {
+        "readonly": true,
+        "required": false,
+        "string": "UHID No.",
+        "type": "char"
+      },
+      "doctor_id": {
+        "readonly": true,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Consultant In-charge",
+        "type": "many2one"
+      },
+      "checklist_date": {
+        "readonly": false,
+        "required": false,
+        "string": "Date",
+        "type": "date"
+      },
+      "age": {
+        "readonly": false,
+        "required": false,
+        "string": "Age",
+        "type": "char"
+      },
+      "sex": {
+        "readonly": false,
+        "required": false,
+        "string": "Sex",
+        "type": "selection"
+      },
+      "weight": {
+        "readonly": false,
+        "required": false,
+        "string": "Weight (Kg)",
+        "type": "float"
+      },
+      "consent_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "consent_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "nbm_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "nbm_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "body_weight_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "body_weight_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "preop_medication_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "preop_medication_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "shaving_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "shaving_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "enema_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "enema_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "voiding_urine_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "voiding_urine_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "change_clothes_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "change_clothes_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "patient_file_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "patient_file_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "investigation_reports_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "investigation_reports_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "ct_mri_pet_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "ct_mri_pet_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "ot_notes_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "ot_notes_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "anaesthesia_sheet_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "anaesthesia_sheet_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "other_orders_status": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "other_orders_remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Other Specific Orders",
+        "type": "char"
+      },
+      "custom_line_ids": {
+        "readonly": false,
+        "relation": "healthplix.preop.checklist.line",
+        "required": false,
+        "string": "Additional Checklist Items",
+        "type": "one2many"
+      },
+      "sender_time": {
+        "readonly": false,
+        "required": false,
+        "string": "Sender Time",
+        "type": "datetime"
+      },
+      "receiver_time": {
+        "readonly": false,
+        "required": false,
+        "string": "Receiver Time",
+        "type": "datetime"
+      },
+      "sender_staff_id": {
+        "readonly": false,
+        "relation": "res.users",
+        "required": false,
+        "string": "Sender – Staff (Full Name)",
+        "type": "many2one"
+      },
+      "receiver_staff_id": {
+        "readonly": false,
+        "relation": "res.users",
+        "required": false,
+        "string": "Receiver – Staff (Full Name)",
+        "type": "many2one"
+      },
+      "state": {
+        "readonly": false,
+        "required": false,
+        "string": "State",
+        "type": "selection"
+      },
+      "completion_percent": {
+        "readonly": true,
+        "required": false,
+        "string": "Completion %",
+        "type": "integer"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.preop.checklist.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "checklist_id": {
+        "readonly": false,
+        "relation": "healthplix.preop.checklist",
+        "required": true,
+        "string": "Checklist",
+        "type": "many2one"
+      },
+      "sequence": {
+        "readonly": false,
+        "required": false,
+        "string": "Sequence",
+        "type": "integer"
+      },
+      "name": {
+        "readonly": false,
+        "required": true,
+        "string": "Item Name",
+        "type": "char"
+      },
+      "status": {
+        "readonly": false,
+        "required": true,
+        "string": "Status",
+        "type": "selection"
+      },
+      "remarks": {
+        "readonly": false,
+        "required": false,
+        "string": "Remarks",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.prescription": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "name": {
+        "readonly": true,
+        "required": true,
+        "string": "Reference",
+        "type": "char"
+      },
+      "patient_id": {
+        "readonly": false,
+        "relation": "healthplix.patient",
+        "required": true,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "appointment_id": {
+        "readonly": false,
+        "relation": "healthplix.appointment",
+        "required": false,
+        "string": "Appointment",
+        "type": "many2one"
+      },
+      "date": {
+        "readonly": false,
+        "required": false,
+        "string": "Date",
+        "type": "datetime"
+      },
+      "prescription_line_ids": {
+        "readonly": false,
+        "relation": "healthplix.prescription.line",
+        "required": false,
+        "string": "Medicines",
+        "type": "one2many"
+      },
+      "notes": {
+        "readonly": false,
+        "required": false,
+        "string": "Prescription Notes",
+        "type": "text"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.prescription.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "prescription_id": {
+        "readonly": false,
+        "relation": "healthplix.prescription",
+        "required": true,
+        "string": "Prescription",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "product_id": {
+        "readonly": false,
+        "relation": "product.product",
+        "required": true,
+        "string": "Medicine",
+        "type": "many2one"
+      },
+      "quantity": {
+        "readonly": false,
+        "required": false,
+        "string": "Qty",
+        "type": "float"
+      },
+      "uom_id": {
+        "readonly": true,
+        "relation": "uom.uom",
+        "required": false,
+        "string": "Unit",
+        "type": "many2one"
+      },
+      "dosage": {
+        "readonly": false,
+        "required": false,
+        "string": "Dosage / Instructions",
+        "type": "char"
+      },
+      "duration": {
+        "readonly": false,
+        "required": false,
+        "string": "Duration (e.g. 5 Days)",
+        "type": "char"
+      },
+      "note": {
+        "readonly": false,
+        "required": false,
+        "string": "Notes",
+        "type": "text"
+      },
+      "is_billed": {
+        "readonly": true,
+        "required": false,
+        "string": "Already Billed",
+        "type": "boolean"
+      },
+      "is_paid": {
+        "readonly": true,
+        "required": false,
+        "string": "Paid in Billing",
+        "type": "boolean"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.treatment.plan": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "name": {
+        "readonly": true,
+        "required": false,
+        "string": "Plan Reference",
+        "type": "char"
+      },
+      "patient_id": {
+        "readonly": false,
+        "relation": "healthplix.patient",
+        "required": true,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "doctor_id": {
+        "readonly": false,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Oncologist / Doctor",
+        "type": "many2one"
+      },
+      "date": {
+        "readonly": false,
+        "required": false,
+        "string": "Plan Date",
+        "type": "date"
+      },
+      "cancer_type": {
+        "readonly": false,
+        "required": true,
+        "string": "Cancer Type",
+        "type": "selection"
+      },
+      "stage": {
+        "readonly": false,
+        "required": false,
+        "string": "Stage",
+        "type": "selection"
+      },
+      "treatment_goal": {
+        "readonly": false,
+        "required": false,
+        "string": "Treatment Goal",
+        "type": "selection"
+      },
+      "diagnosis_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Diagnosis Summary",
+        "type": "text"
+      },
+      "plan_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Treatment Plan Summary",
+        "type": "text"
+      },
+      "next_review_date": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Review Date",
+        "type": "date"
+      },
+      "line_ids": {
+        "readonly": false,
+        "relation": "healthplix.treatment.plan.line",
+        "required": false,
+        "string": "Plan Lines",
+        "type": "one2many"
+      },
+      "total_estimated_cost": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Estimated Cost (₹)",
+        "type": "float"
+      },
+      "report_pdf": {
+        "readonly": false,
+        "required": false,
+        "string": "Treatment Plan PDF",
+        "type": "binary"
+      },
+      "report_pdf_filename": {
+        "readonly": false,
+        "required": false,
+        "string": "PDF Filename",
+        "type": "char"
+      },
+      "state": {
+        "readonly": false,
+        "required": false,
+        "string": "Status",
+        "type": "selection"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.treatment.plan.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "plan_id": {
+        "readonly": false,
+        "relation": "healthplix.treatment.plan",
+        "required": false,
+        "string": "Plan",
+        "type": "many2one"
+      },
+      "category": {
+        "readonly": false,
+        "required": false,
+        "string": "Category",
+        "type": "char"
+      },
+      "item_key": {
+        "readonly": false,
+        "required": false,
+        "string": "Item Key",
+        "type": "char"
+      },
+      "item_label": {
+        "readonly": false,
+        "required": false,
+        "string": "Description",
+        "type": "char"
+      },
+      "estimated_cost": {
+        "readonly": false,
+        "required": false,
+        "string": "Est. Cost (₹)",
+        "type": "float"
+      },
+      "duration": {
+        "readonly": false,
+        "required": false,
+        "string": "Duration / Cycles",
+        "type": "char"
+      },
+      "notes": {
+        "readonly": false,
+        "required": false,
+        "string": "Notes",
+        "type": "text"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.treatment.plan.wizard": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": true,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "doctor_id": {
+        "readonly": false,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Oncologist / Doctor",
+        "type": "many2one"
+      },
+      "cancer_type": {
+        "readonly": false,
+        "required": true,
+        "string": "Cancer Type",
+        "type": "selection"
+      },
+      "stage": {
+        "readonly": false,
+        "required": false,
+        "string": "Cancer Stage",
+        "type": "selection"
+      },
+      "treatment_goal": {
+        "readonly": false,
+        "required": false,
+        "string": "Treatment Goal",
+        "type": "selection"
+      },
+      "diagnosis_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Diagnosis Summary",
+        "type": "text"
+      },
+      "plan_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Oncologist's Note / Plan Overview",
+        "type": "text"
+      },
+      "next_review_date": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Review / Follow-up Date",
+        "type": "date"
+      },
+      "inv_cbc": {
+        "readonly": false,
+        "required": false,
+        "string": "CBC – Complete Blood Count",
+        "type": "boolean"
+      },
+      "inv_lft": {
+        "readonly": false,
+        "required": false,
+        "string": "Liver Function Tests (LFT)",
+        "type": "boolean"
+      },
+      "inv_kft": {
+        "readonly": false,
+        "required": false,
+        "string": "Kidney Function Tests (KFT)",
+        "type": "boolean"
+      },
+      "inv_tumor_markers": {
+        "readonly": false,
+        "required": false,
+        "string": "Tumour Markers (CEA / CA125 / PSA / AFP)",
+        "type": "boolean"
+      },
+      "inv_biopsy": {
+        "readonly": false,
+        "required": false,
+        "string": "Tissue Biopsy / Histopathology",
+        "type": "boolean"
+      },
+      "inv_ihc": {
+        "readonly": false,
+        "required": false,
+        "string": "Immunohistochemistry (IHC)",
+        "type": "boolean"
+      },
+      "inv_fish": {
+        "readonly": false,
+        "required": false,
+        "string": "FISH / Cytogenetics",
+        "type": "boolean"
+      },
+      "inv_ngs": {
+        "readonly": false,
+        "required": false,
+        "string": "Next-Generation Sequencing (NGS)",
+        "type": "boolean"
+      },
+      "inv_xray": {
+        "readonly": false,
+        "required": false,
+        "string": "X-Ray Chest / Bone",
+        "type": "boolean"
+      },
+      "inv_ct_scan": {
+        "readonly": false,
+        "required": false,
+        "string": "CT Scan",
+        "type": "boolean"
+      },
+      "inv_mri": {
+        "readonly": false,
+        "required": false,
+        "string": "MRI",
+        "type": "boolean"
+      },
+      "inv_pet_ct": {
+        "readonly": false,
+        "required": false,
+        "string": "PET-CT Scan",
+        "type": "boolean"
+      },
+      "inv_bone_scan": {
+        "readonly": false,
+        "required": false,
+        "string": "Bone Scan (Scintigraphy)",
+        "type": "boolean"
+      },
+      "inv_echo": {
+        "readonly": false,
+        "required": false,
+        "string": "Echocardiogram (Cardiac Monitoring)",
+        "type": "boolean"
+      },
+      "inv_muga": {
+        "readonly": false,
+        "required": false,
+        "string": "MUGA Scan",
+        "type": "boolean"
+      },
+      "inv_colonoscopy": {
+        "readonly": false,
+        "required": false,
+        "string": "Colonoscopy / Endoscopy",
+        "type": "boolean"
+      },
+      "inv_mammo": {
+        "readonly": false,
+        "required": false,
+        "string": "Mammography / Breast Ultrasound",
+        "type": "boolean"
+      },
+      "surg_lumpectomy": {
+        "readonly": false,
+        "required": false,
+        "string": "Lumpectomy (Breast-conserving)",
+        "type": "boolean"
+      },
+      "surg_mastectomy": {
+        "readonly": false,
+        "required": false,
+        "string": "Mastectomy",
+        "type": "boolean"
+      },
+      "surg_resection": {
+        "readonly": false,
+        "required": false,
+        "string": "Tumour Resection",
+        "type": "boolean"
+      },
+      "surg_lymph_node": {
+        "readonly": false,
+        "required": false,
+        "string": "Lymph Node Dissection",
+        "type": "boolean"
+      },
+      "surg_laparoscopic": {
+        "readonly": false,
+        "required": false,
+        "string": "Laparoscopic / Minimally Invasive",
+        "type": "boolean"
+      },
+      "surg_robotic": {
+        "readonly": false,
+        "required": false,
+        "string": "Robotic-Assisted Surgery",
+        "type": "boolean"
+      },
+      "surg_debulking": {
+        "readonly": false,
+        "required": false,
+        "string": "Debulking Surgery",
+        "type": "boolean"
+      },
+      "surg_colostomy": {
+        "readonly": false,
+        "required": false,
+        "string": "Colostomy / Bowel Diversion",
+        "type": "boolean"
+      },
+      "surg_orchidectomy": {
+        "readonly": false,
+        "required": false,
+        "string": "Orchidectomy",
+        "type": "boolean"
+      },
+      "surg_hysterectomy": {
+        "readonly": false,
+        "required": false,
+        "string": "Hysterectomy",
+        "type": "boolean"
+      },
+      "surg_amputation": {
+        "readonly": false,
+        "required": false,
+        "string": "Limb Amputation",
+        "type": "boolean"
+      },
+      "surg_reconstructive": {
+        "readonly": false,
+        "required": false,
+        "string": "Reconstructive Surgery",
+        "type": "boolean"
+      },
+      "surg_biopsy": {
+        "readonly": false,
+        "required": false,
+        "string": "Surgical Biopsy",
+        "type": "boolean"
+      },
+      "chemo_ac_t": {
+        "readonly": false,
+        "required": false,
+        "string": "AC-T (Doxorubicin + Cyclophosphamide → Paclitaxel)",
+        "type": "boolean"
+      },
+      "chemo_folfox": {
+        "readonly": false,
+        "required": false,
+        "string": "FOLFOX",
+        "type": "boolean"
+      },
+      "chemo_folfiri": {
+        "readonly": false,
+        "required": false,
+        "string": "FOLFIRI",
+        "type": "boolean"
+      },
+      "chemo_r_chop": {
+        "readonly": false,
+        "required": false,
+        "string": "R-CHOP",
+        "type": "boolean"
+      },
+      "chemo_bep": {
+        "readonly": false,
+        "required": false,
+        "string": "BEP (Bleomycin + Etoposide + Cisplatin)",
+        "type": "boolean"
+      },
+      "chemo_mvac": {
+        "readonly": false,
+        "required": false,
+        "string": "MVAC",
+        "type": "boolean"
+      },
+      "chemo_gemcis": {
+        "readonly": false,
+        "required": false,
+        "string": "Gem-Cis (Gemcitabine + Cisplatin)",
+        "type": "boolean"
+      },
+      "chemo_carbo_taxol": {
+        "readonly": false,
+        "required": false,
+        "string": "Carbo-Taxol (Carboplatin + Paclitaxel)",
+        "type": "boolean"
+      },
+      "chemo_5fu": {
+        "readonly": false,
+        "required": false,
+        "string": "Single-Agent 5-FU",
+        "type": "boolean"
+      },
+      "chemo_gemcitabine": {
+        "readonly": false,
+        "required": false,
+        "string": "Single-Agent Gemcitabine",
+        "type": "boolean"
+      },
+      "chemo_custom": {
+        "readonly": false,
+        "required": false,
+        "string": "Custom / Individualised Protocol",
+        "type": "boolean"
+      },
+      "rad_ebrt_3d": {
+        "readonly": false,
+        "required": false,
+        "string": "External Beam RT – 3D Conformal",
+        "type": "boolean"
+      },
+      "rad_imrt": {
+        "readonly": false,
+        "required": false,
+        "string": "IMRT (Intensity-Modulated RT)",
+        "type": "boolean"
+      },
+      "rad_igrt": {
+        "readonly": false,
+        "required": false,
+        "string": "IGRT (Image-Guided RT)",
+        "type": "boolean"
+      },
+      "rad_vmat": {
+        "readonly": false,
+        "required": false,
+        "string": "VMAT / RapidArc",
+        "type": "boolean"
+      },
+      "rad_stereotactic": {
+        "readonly": false,
+        "required": false,
+        "string": "Stereotactic Radiosurgery (SRS / SBRT)",
+        "type": "boolean"
+      },
+      "rad_proton": {
+        "readonly": false,
+        "required": false,
+        "string": "Proton Therapy",
+        "type": "boolean"
+      },
+      "rad_brachy": {
+        "readonly": false,
+        "required": false,
+        "string": "Brachytherapy (Internal)",
+        "type": "boolean"
+      },
+      "rad_tbi": {
+        "readonly": false,
+        "required": false,
+        "string": "Total Body Irradiation (TBI)",
+        "type": "boolean"
+      },
+      "tgt_trastuzumab": {
+        "readonly": false,
+        "required": false,
+        "string": "Trastuzumab (Herceptin) – HER2+",
+        "type": "boolean"
+      },
+      "tgt_pertuzumab": {
+        "readonly": false,
+        "required": false,
+        "string": "Pertuzumab (Perjeta) – HER2+",
+        "type": "boolean"
+      },
+      "tgt_imatinib": {
+        "readonly": false,
+        "required": false,
+        "string": "Imatinib (Gleevec)",
+        "type": "boolean"
+      },
+      "tgt_erlotinib": {
+        "readonly": false,
+        "required": false,
+        "string": "Erlotinib (Tarceva) – EGFR+",
+        "type": "boolean"
+      },
+      "tgt_osimertinib": {
+        "readonly": false,
+        "required": false,
+        "string": "Osimertinib (Tagrisso) – EGFR T790M",
+        "type": "boolean"
+      },
+      "tgt_bevacizumab": {
+        "readonly": false,
+        "required": false,
+        "string": "Bevacizumab (Avastin) – Anti-VEGF",
+        "type": "boolean"
+      },
+      "tgt_cetuximab": {
+        "readonly": false,
+        "required": false,
+        "string": "Cetuximab (Erbitux)",
+        "type": "boolean"
+      },
+      "tgt_vemurafenib": {
+        "readonly": false,
+        "required": false,
+        "string": "Vemurafenib – BRAF V600E",
+        "type": "boolean"
+      },
+      "tgt_palbociclib": {
+        "readonly": false,
+        "required": false,
+        "string": "Palbociclib (Ibrance) – CDK4/6",
+        "type": "boolean"
+      },
+      "tgt_olaparib": {
+        "readonly": false,
+        "required": false,
+        "string": "Olaparib (Lynparza) – BRCA+",
+        "type": "boolean"
+      },
+      "tgt_ibrutinib": {
+        "readonly": false,
+        "required": false,
+        "string": "Ibrutinib – BTK inhibitor",
+        "type": "boolean"
+      },
+      "tgt_bortezomib": {
+        "readonly": false,
+        "required": false,
+        "string": "Bortezomib (Velcade)",
+        "type": "boolean"
+      },
+      "imm_pembrolizumab": {
+        "readonly": false,
+        "required": false,
+        "string": "Pembrolizumab (Keytruda) – PD-1",
+        "type": "boolean"
+      },
+      "imm_nivolumab": {
+        "readonly": false,
+        "required": false,
+        "string": "Nivolumab (Opdivo) – PD-1",
+        "type": "boolean"
+      },
+      "imm_atezolizumab": {
+        "readonly": false,
+        "required": false,
+        "string": "Atezolizumab (Tecentriq) – PD-L1",
+        "type": "boolean"
+      },
+      "imm_ipilimumab": {
+        "readonly": false,
+        "required": false,
+        "string": "Ipilimumab (Yervoy) – CTLA-4",
+        "type": "boolean"
+      },
+      "imm_durvalumab": {
+        "readonly": false,
+        "required": false,
+        "string": "Durvalumab (Imfinzi)",
+        "type": "boolean"
+      },
+      "imm_car_t": {
+        "readonly": false,
+        "required": false,
+        "string": "CAR-T Cell Therapy",
+        "type": "boolean"
+      },
+      "imm_blinatumomab": {
+        "readonly": false,
+        "required": false,
+        "string": "Blinatumomab (Blincyto)",
+        "type": "boolean"
+      },
+      "imm_rituximab": {
+        "readonly": false,
+        "required": false,
+        "string": "Rituximab (Rituxan) – CD20",
+        "type": "boolean"
+      },
+      "sup_pain_mgmt": {
+        "readonly": false,
+        "required": false,
+        "string": "Pain Management / Analgesics",
+        "type": "boolean"
+      },
+      "sup_antiemetics": {
+        "readonly": false,
+        "required": false,
+        "string": "Antiemetics (Nausea / Vomiting)",
+        "type": "boolean"
+      },
+      "sup_gcsf": {
+        "readonly": false,
+        "required": false,
+        "string": "G-CSF / Filgrastim (Bone Marrow Support)",
+        "type": "boolean"
+      },
+      "sup_steroids": {
+        "readonly": false,
+        "required": false,
+        "string": "Corticosteroids",
+        "type": "boolean"
+      },
+      "sup_bisphosphonates": {
+        "readonly": false,
+        "required": false,
+        "string": "Bisphosphonates (Bone Protection)",
+        "type": "boolean"
+      },
+      "sup_nutritional": {
+        "readonly": false,
+        "required": false,
+        "string": "Nutritional Support / Dietitian",
+        "type": "boolean"
+      },
+      "sup_physiotherapy": {
+        "readonly": false,
+        "required": false,
+        "string": "Physiotherapy / Rehabilitation",
+        "type": "boolean"
+      },
+      "sup_psycho_oncology": {
+        "readonly": false,
+        "required": false,
+        "string": "Psycho-Oncology / Counselling",
+        "type": "boolean"
+      },
+      "sup_palliative_team": {
+        "readonly": false,
+        "required": false,
+        "string": "Palliative Care Team",
+        "type": "boolean"
+      },
+      "sup_social_worker": {
+        "readonly": false,
+        "required": false,
+        "string": "Social Worker / Financial Aid",
+        "type": "boolean"
+      },
+      "sup_clinical_trial": {
+        "readonly": false,
+        "required": false,
+        "string": "Clinical Trial Enrolment",
+        "type": "boolean"
+      },
+      "cost_investigations": {
+        "readonly": false,
+        "required": false,
+        "string": "Est. Cost – Investigations (₹)",
+        "type": "float"
+      },
+      "cost_surgery": {
+        "readonly": false,
+        "required": false,
+        "string": "Est. Cost – Surgery (₹)",
+        "type": "float"
+      },
+      "cost_chemo": {
+        "readonly": false,
+        "required": false,
+        "string": "Est. Cost – Chemotherapy (₹)",
+        "type": "float"
+      },
+      "cost_radiation": {
+        "readonly": false,
+        "required": false,
+        "string": "Est. Cost – Radiation (₹)",
+        "type": "float"
+      },
+      "cost_targeted": {
+        "readonly": false,
+        "required": false,
+        "string": "Est. Cost – Targeted Therapy (₹)",
+        "type": "float"
+      },
+      "cost_immunotherapy": {
+        "readonly": false,
+        "required": false,
+        "string": "Est. Cost – Immunotherapy (₹)",
+        "type": "float"
+      },
+      "cost_supportive": {
+        "readonly": false,
+        "required": false,
+        "string": "Est. Cost – Supportive Care (₹)",
+        "type": "float"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.treatment.sheet": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "activity_ids": {
+        "readonly": false,
+        "relation": "mail.activity",
+        "required": false,
+        "string": "Activities",
+        "type": "one2many"
+      },
+      "activity_state": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity State",
+        "type": "selection"
+      },
+      "activity_user_id": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Responsible User",
+        "type": "many2one"
+      },
+      "activity_type_id": {
+        "readonly": false,
+        "relation": "mail.activity.type",
+        "required": false,
+        "string": "Next Activity Type",
+        "type": "many2one"
+      },
+      "activity_type_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Type Icon",
+        "type": "char"
+      },
+      "activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "Next Activity Deadline",
+        "type": "date"
+      },
+      "my_activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "My Activity Deadline",
+        "type": "date"
+      },
+      "activity_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Activity Summary",
+        "type": "char"
+      },
+      "activity_exception_decoration": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Exception Decoration",
+        "type": "selection"
+      },
+      "activity_exception_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Icon",
+        "type": "char"
+      },
+      "message_is_follower": {
+        "readonly": true,
+        "required": false,
+        "string": "Is Follower",
+        "type": "boolean"
+      },
+      "message_follower_ids": {
+        "readonly": false,
+        "relation": "mail.followers",
+        "required": false,
+        "string": "Followers",
+        "type": "one2many"
+      },
+      "message_partner_ids": {
+        "readonly": false,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Followers (Partners)",
+        "type": "many2many"
+      },
+      "message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Messages",
+        "type": "one2many"
+      },
+      "has_message": {
+        "readonly": true,
+        "required": false,
+        "string": "Has Message",
+        "type": "boolean"
+      },
+      "message_needaction": {
+        "readonly": true,
+        "required": false,
+        "string": "Action Needed",
+        "type": "boolean"
+      },
+      "message_needaction_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of Actions",
+        "type": "integer"
+      },
+      "message_has_error": {
+        "readonly": true,
+        "required": false,
+        "string": "Message Delivery error",
+        "type": "boolean"
+      },
+      "message_has_error_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of errors",
+        "type": "integer"
+      },
+      "message_attachment_count": {
+        "readonly": true,
+        "required": false,
+        "string": "Attachment Count",
+        "type": "integer"
+      },
+      "website_message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Website Messages",
+        "type": "one2many"
+      },
+      "message_has_sms_error": {
+        "readonly": true,
+        "required": false,
+        "string": "SMS Delivery error",
+        "type": "boolean"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD Record",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "doctor_id": {
+        "readonly": true,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Consultant In-charge",
+        "type": "many2one"
+      },
+      "sheet_date": {
+        "readonly": false,
+        "required": true,
+        "string": "Date",
+        "type": "date"
+      },
+      "diagnosis": {
+        "readonly": false,
+        "required": false,
+        "string": "Diagnosis",
+        "type": "char"
+      },
+      "day_number": {
+        "readonly": true,
+        "required": false,
+        "string": "Day No.",
+        "type": "integer"
+      },
+      "input_ml": {
+        "readonly": false,
+        "required": false,
+        "string": "Input (ml)",
+        "type": "float"
+      },
+      "output_ml": {
+        "readonly": false,
+        "required": false,
+        "string": "Output (ml)",
+        "type": "float"
+      },
+      "balance_ml": {
+        "readonly": true,
+        "required": false,
+        "string": "Balance (ml)",
+        "type": "float"
+      },
+      "investigation_today": {
+        "readonly": false,
+        "required": false,
+        "string": "Investigation Today",
+        "type": "text"
+      },
+      "investigation_tomorrow_6am": {
+        "readonly": false,
+        "required": false,
+        "string": "Investigation Tomorrow 6 AM",
+        "type": "text"
+      },
+      "diet": {
+        "readonly": false,
+        "required": false,
+        "string": "Diet",
+        "type": "char"
+      },
+      "morning_nurse_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Morning Nurse Name & ID",
+        "type": "char"
+      },
+      "morning_nurse_sign": {
+        "readonly": false,
+        "required": false,
+        "string": "Morning Sign",
+        "type": "char"
+      },
+      "evening_nurse_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Evening Nurse Name & ID",
+        "type": "char"
+      },
+      "evening_nurse_sign": {
+        "readonly": false,
+        "required": false,
+        "string": "Evening Sign",
+        "type": "char"
+      },
+      "night_nurse_name": {
+        "readonly": false,
+        "required": false,
+        "string": "Night Nurse Name & ID",
+        "type": "char"
+      },
+      "night_nurse_sign": {
+        "readonly": false,
+        "required": false,
+        "string": "Night Sign",
+        "type": "char"
+      },
+      "medication_line_ids": {
+        "readonly": false,
+        "relation": "healthplix.treatment.sheet.medication",
+        "required": false,
+        "string": "Medication Orders",
+        "type": "one2many"
+      },
+      "consultant_signature": {
+        "readonly": false,
+        "required": false,
+        "string": "Signature",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.treatment.sheet.medication": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "sheet_id": {
+        "readonly": false,
+        "relation": "healthplix.treatment.sheet",
+        "required": true,
+        "string": "Treatment Sheet",
+        "type": "many2one"
+      },
+      "sequence": {
+        "readonly": false,
+        "required": false,
+        "string": "S. No.",
+        "type": "integer"
+      },
+      "medication_order": {
+        "readonly": false,
+        "required": true,
+        "string": "Medication Order",
+        "type": "char"
+      },
+      "morning_admin": {
+        "readonly": false,
+        "required": false,
+        "string": "Morning",
+        "type": "char"
+      },
+      "evening_admin": {
+        "readonly": false,
+        "required": false,
+        "string": "Evening",
+        "type": "char"
+      },
+      "night_admin": {
+        "readonly": false,
+        "required": false,
+        "string": "Night",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.vital.chart": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "activity_ids": {
+        "readonly": false,
+        "relation": "mail.activity",
+        "required": false,
+        "string": "Activities",
+        "type": "one2many"
+      },
+      "activity_state": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity State",
+        "type": "selection"
+      },
+      "activity_user_id": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Responsible User",
+        "type": "many2one"
+      },
+      "activity_type_id": {
+        "readonly": false,
+        "relation": "mail.activity.type",
+        "required": false,
+        "string": "Next Activity Type",
+        "type": "many2one"
+      },
+      "activity_type_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Type Icon",
+        "type": "char"
+      },
+      "activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "Next Activity Deadline",
+        "type": "date"
+      },
+      "my_activity_date_deadline": {
+        "readonly": true,
+        "required": false,
+        "string": "My Activity Deadline",
+        "type": "date"
+      },
+      "activity_summary": {
+        "readonly": false,
+        "required": false,
+        "string": "Next Activity Summary",
+        "type": "char"
+      },
+      "activity_exception_decoration": {
+        "readonly": true,
+        "required": false,
+        "string": "Activity Exception Decoration",
+        "type": "selection"
+      },
+      "activity_exception_icon": {
+        "readonly": true,
+        "required": false,
+        "string": "Icon",
+        "type": "char"
+      },
+      "message_is_follower": {
+        "readonly": true,
+        "required": false,
+        "string": "Is Follower",
+        "type": "boolean"
+      },
+      "message_follower_ids": {
+        "readonly": false,
+        "relation": "mail.followers",
+        "required": false,
+        "string": "Followers",
+        "type": "one2many"
+      },
+      "message_partner_ids": {
+        "readonly": false,
+        "relation": "res.partner",
+        "required": false,
+        "string": "Followers (Partners)",
+        "type": "many2many"
+      },
+      "message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Messages",
+        "type": "one2many"
+      },
+      "has_message": {
+        "readonly": true,
+        "required": false,
+        "string": "Has Message",
+        "type": "boolean"
+      },
+      "message_needaction": {
+        "readonly": true,
+        "required": false,
+        "string": "Action Needed",
+        "type": "boolean"
+      },
+      "message_needaction_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of Actions",
+        "type": "integer"
+      },
+      "message_has_error": {
+        "readonly": true,
+        "required": false,
+        "string": "Message Delivery error",
+        "type": "boolean"
+      },
+      "message_has_error_counter": {
+        "readonly": true,
+        "required": false,
+        "string": "Number of errors",
+        "type": "integer"
+      },
+      "message_attachment_count": {
+        "readonly": true,
+        "required": false,
+        "string": "Attachment Count",
+        "type": "integer"
+      },
+      "website_message_ids": {
+        "readonly": false,
+        "relation": "mail.message",
+        "required": false,
+        "string": "Website Messages",
+        "type": "one2many"
+      },
+      "message_has_sms_error": {
+        "readonly": true,
+        "required": false,
+        "string": "SMS Delivery error",
+        "type": "boolean"
+      },
+      "ipd_id": {
+        "readonly": false,
+        "relation": "healthplix.ipd",
+        "required": true,
+        "string": "IPD Record",
+        "type": "many2one"
+      },
+      "patient_id": {
+        "readonly": true,
+        "relation": "healthplix.patient",
+        "required": false,
+        "string": "Patient",
+        "type": "many2one"
+      },
+      "doctor_id": {
+        "readonly": true,
+        "relation": "healthplix.doctor",
+        "required": false,
+        "string": "Consultant",
+        "type": "many2one"
+      },
+      "ward_id": {
+        "readonly": true,
+        "relation": "healthplix.ward",
+        "required": false,
+        "string": "Ward",
+        "type": "many2one"
+      },
+      "bed_id": {
+        "readonly": true,
+        "relation": "healthplix.bed",
+        "required": false,
+        "string": "Bed",
+        "type": "many2one"
+      },
+      "age_sex": {
+        "readonly": true,
+        "required": false,
+        "string": "Age / Sex",
+        "type": "char"
+      },
+      "uhid_no": {
+        "readonly": true,
+        "required": false,
+        "string": "UHID No.",
+        "type": "char"
+      },
+      "bed_room_no": {
+        "readonly": true,
+        "required": false,
+        "string": "Bed / Room No.",
+        "type": "char"
+      },
+      "diagnosis": {
+        "readonly": false,
+        "required": false,
+        "string": "Diagnosis",
+        "type": "text"
+      },
+      "vital_line_ids": {
+        "readonly": false,
+        "relation": "healthplix.vital.chart.line",
+        "required": false,
+        "string": "Vital Entries",
+        "type": "one2many"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.vital.chart.line": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "chart_id": {
+        "readonly": false,
+        "relation": "healthplix.vital.chart",
+        "required": true,
+        "string": "Vital Chart",
+        "type": "many2one"
+      },
+      "ipd_id": {
+        "readonly": true,
+        "relation": "healthplix.ipd",
+        "required": false,
+        "string": "IPD",
+        "type": "many2one"
+      },
+      "entry_date": {
+        "readonly": false,
+        "required": true,
+        "string": "Date",
+        "type": "date"
+      },
+      "time_slot": {
+        "readonly": false,
+        "required": true,
+        "string": "Time",
+        "type": "selection"
+      },
+      "temperature_f": {
+        "readonly": false,
+        "required": false,
+        "string": "Temperature (°F)",
+        "type": "float"
+      },
+      "temperature_c": {
+        "readonly": true,
+        "required": false,
+        "string": "Temperature (°C)",
+        "type": "float"
+      },
+      "pulse": {
+        "readonly": false,
+        "required": false,
+        "string": "Pulse (bpm)",
+        "type": "integer"
+      },
+      "respiration": {
+        "readonly": false,
+        "required": false,
+        "string": "Resp. (breaths/min)",
+        "type": "float"
+      },
+      "bp_systolic": {
+        "readonly": false,
+        "required": false,
+        "string": "BP Systolic (mmHg)",
+        "type": "integer"
+      },
+      "bp_diastolic": {
+        "readonly": false,
+        "required": false,
+        "string": "BP Diastolic (mmHg)",
+        "type": "integer"
+      },
+      "bp_display": {
+        "readonly": true,
+        "required": false,
+        "string": "B.P.",
+        "type": "char"
+      },
+      "spo2": {
+        "readonly": false,
+        "required": false,
+        "string": "SpO₂ (%)",
+        "type": "float"
+      },
+      "notes": {
+        "readonly": false,
+        "required": false,
+        "string": "Notes",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "healthplix.ward": {
+      "id": {
+        "readonly": true,
+        "required": false,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "name": {
+        "readonly": false,
+        "required": true,
+        "string": "Ward Name",
+        "type": "char"
+      },
+      "ward_code": {
+        "readonly": false,
+        "required": false,
+        "string": "Ward Code",
+        "type": "char"
+      },
+      "ward_type": {
+        "readonly": false,
+        "required": true,
+        "string": "Ward Type",
+        "type": "selection"
+      },
+      "floor": {
+        "readonly": false,
+        "required": false,
+        "string": "Floor",
+        "type": "char"
+      },
+      "total_beds": {
+        "readonly": true,
+        "required": false,
+        "string": "Total Beds",
+        "type": "integer"
+      },
+      "bed_ids": {
+        "readonly": false,
+        "relation": "healthplix.bed",
+        "required": false,
+        "string": "Beds",
+        "type": "one2many"
+      },
+      "notes": {
+        "readonly": false,
+        "required": false,
+        "string": "Notes",
+        "type": "text"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    }
+  },
+  "failures": {}
+}

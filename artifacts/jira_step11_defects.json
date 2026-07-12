@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-07-11T19:06:33.665Z",
+  "projectKey": "KAN",
+  "totalFiled": 4,
+  "created": [
+    {
+      "id": "BUG-ONCO-001",
+      "key": "KAN-49",
+      "module": "Prescriptions",
+      "title": "Server accepts negative drug quantity in prescription lines"
+    },
+    {
+      "id": "BUG-ONCO-002",
+      "key": "KAN-50",
+      "module": "Billing",
+      "title": "Server accepts negative billing unit price"
+    },
+    {
+      "id": "BUG-ONCO-003",
+      "key": "KAN-51",
+      "module": "Doctors",
+      "title": "Server accepts negative doctor experience"
+    },
+    {
+      "id": "BUG-ONCO-004",
+      "key": "KAN-52",
+      "module": "Prescriptions",
+      "title": "Server accepts clinically implausible dosage text without guardrails"
+    }
+  ]
+}

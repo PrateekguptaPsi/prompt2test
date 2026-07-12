@@ -1,0 +1,699 @@
+{
+  "generatedAt": "2026-07-11T18:32:32.847Z",
+  "baseUrl": "https://team43.qaaerp.com",
+  "modules": [
+    {
+      "module": "Patients",
+      "menuPath": "Patients",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-374",
+      "actionId": 374,
+      "actionRef": "action-374",
+      "columns": [
+        "Patient UHID",
+        "Name",
+        "Phone",
+        "Email",
+        "Related Doctors"
+      ],
+      "formFields": [
+        {
+          "name": "address",
+          "label": "Address",
+          "required": false
+        },
+        {
+          "name": "blood_type",
+          "label": "Blood Type",
+          "required": false
+        },
+        {
+          "name": "dob",
+          "label": "Date of Birth",
+          "required": false
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "required": false
+        },
+        {
+          "name": "gender",
+          "label": "Gender",
+          "required": false
+        },
+        {
+          "name": "identity_document_attachment",
+          "label": "Gender",
+          "required": false
+        },
+        {
+          "name": "identity_document_attachment_filename",
+          "label": "Attachment Filename",
+          "required": false
+        },
+        {
+          "name": "identity_document_number",
+          "label": "ID Document Number",
+          "required": false
+        },
+        {
+          "name": "identity_document_type",
+          "label": "ID Document Type",
+          "required": false
+        },
+        {
+          "name": "image",
+          "label": "Photo",
+          "required": false
+        },
+        {
+          "name": "name",
+          "label": "",
+          "required": true
+        },
+        {
+          "name": "partner_id",
+          "label": "Gender",
+          "required": false
+        },
+        {
+          "name": "phone",
+          "label": "Phone",
+          "required": false
+        },
+        {
+          "name": "prescription_header_ids",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "referred_by",
+          "label": "Referred By?",
+          "required": false
+        },
+        {
+          "name": "related_doctor_ids",
+          "label": "Gender",
+          "required": false
+        },
+        {
+          "name": "uid",
+          "label": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "module": "Doctors",
+      "menuPath": "Doctors",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-375",
+      "actionId": 375,
+      "actionRef": "action-375",
+      "columns": [
+        "Name",
+        "Specialization",
+        "Experience (Years)",
+        "Phone"
+      ],
+      "formFields": [
+        {
+          "name": "address",
+          "label": "Address",
+          "required": false
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "required": false
+        },
+        {
+          "name": "experience",
+          "label": "Experience (Years)",
+          "required": false
+        },
+        {
+          "name": "image",
+          "label": "Photo",
+          "required": false
+        },
+        {
+          "name": "name",
+          "label": "Name",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "label": "Phone",
+          "required": false
+        },
+        {
+          "name": "specialization",
+          "label": "Specialization",
+          "required": false
+        }
+      ]
+    },
+    {
+      "module": "Prescriptions",
+      "menuPath": "Prescriptions",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-377",
+      "actionId": 377,
+      "actionRef": "action-377",
+      "columns": [
+        "Reference",
+        "Patient",
+        "Appointment",
+        "Date"
+      ],
+      "formFields": [
+        {
+          "name": "appointment_id",
+          "label": "Appointment",
+          "required": false
+        },
+        {
+          "name": "date",
+          "label": "Date",
+          "required": false
+        },
+        {
+          "name": "name",
+          "label": "",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "patient_id",
+          "label": "Patient",
+          "required": true
+        },
+        {
+          "name": "prescription_line_ids",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "product_id",
+          "label": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "module": "Lab Reports",
+      "menuPath": "Lab Reports",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-378",
+      "actionId": 378,
+      "actionRef": "action-378",
+      "columns": [
+        "Ref",
+        "Patient",
+        "Date",
+        "Test Type",
+        "Doctor",
+        "Lab",
+        "Status"
+      ],
+      "formFields": [
+        {
+          "name": "date",
+          "label": "Patient",
+          "required": true
+        },
+        {
+          "name": "diagnosis",
+          "label": "Diagnosis / Remarks",
+          "required": false
+        },
+        {
+          "name": "lab_cost",
+          "label": "Lab Cost",
+          "required": false
+        },
+        {
+          "name": "lab_name",
+          "label": "Lab Name",
+          "required": false
+        },
+        {
+          "name": "line_ids",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "label": "",
+          "required": true
+        },
+        {
+          "name": "patient_id",
+          "label": "Patient",
+          "required": true
+        },
+        {
+          "name": "referred_by",
+          "label": "Doctor",
+          "required": false
+        },
+        {
+          "name": "report_image",
+          "label": "Report Image",
+          "required": false
+        },
+        {
+          "name": "report_pdf",
+          "label": "Report PDF",
+          "required": false
+        },
+        {
+          "name": "report_pdf_filename",
+          "label": "PDF File",
+          "required": false
+        },
+        {
+          "name": "state",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "test_type_id",
+          "label": "Test Type",
+          "required": false
+        }
+      ]
+    },
+    {
+      "module": "IPD Details",
+      "menuPath": "IPD Details",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-380",
+      "actionId": 380,
+      "actionRef": "action-380",
+      "columns": [
+        "IPD Ref",
+        "Patient",
+        "Doctor Incharge",
+        "Ward",
+        "Bed",
+        "Admission Date",
+        "Discharge Date",
+        "Days",
+        "Bed Cost",
+        "Extra Charges",
+        "Total Cost",
+        "Status"
+      ],
+      "formFields": [
+        {
+          "name": "admission_date",
+          "label": "Admission Date",
+          "required": false
+        },
+        {
+          "name": "bed_charge_per_day",
+          "label": "Charge / Day",
+          "required": false
+        },
+        {
+          "name": "bed_id",
+          "label": "Bed",
+          "required": false
+        },
+        {
+          "name": "days_admitted",
+          "label": "Admission Date",
+          "required": false
+        },
+        {
+          "name": "discharge_date",
+          "label": "Discharge Date",
+          "required": false
+        },
+        {
+          "name": "doctor_id",
+          "label": "Doctor Incharge",
+          "required": false
+        },
+        {
+          "name": "fluid_chart_count",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "ipd_cost_line_ids",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "ipd_history_count",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "patient_id",
+          "label": "Patient",
+          "required": false
+        },
+        {
+          "name": "preop_checklist_count",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "progress_sheet_count",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "registration_count",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "status",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "total_additional_cost",
+          "label": "Bed Charges",
+          "required": false
+        },
+        {
+          "name": "total_bed_cost",
+          "label": "Charge / Day",
+          "required": false
+        },
+        {
+          "name": "total_ipd_cost",
+          "label": "Bed Charges",
+          "required": false
+        },
+        {
+          "name": "treatment_sheet_count",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "uid",
+          "label": "IPD Reference",
+          "required": false
+        },
+        {
+          "name": "vital_chart_count",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "ward_id",
+          "label": "Bed",
+          "required": false
+        }
+      ]
+    },
+    {
+      "module": "Appointments",
+      "menuPath": "Appointments",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-376",
+      "actionId": 376,
+      "actionRef": "action-376",
+      "columns": [
+        "Appointment No",
+        "Patient",
+        "Doctor",
+        "Date",
+        "Time",
+        "Fee",
+        "Status"
+      ],
+      "formFields": [
+        {
+          "name": "appointment_date",
+          "label": "Appointment No",
+          "required": true
+        },
+        {
+          "name": "appointment_time",
+          "label": "Time (HH:MM)?",
+          "required": false
+        },
+        {
+          "name": "cost",
+          "label": "Consultation Fee",
+          "required": false
+        },
+        {
+          "name": "doctor_id",
+          "label": "Doctor",
+          "required": true
+        },
+        {
+          "name": "name",
+          "label": "Appointment No",
+          "required": false
+        },
+        {
+          "name": "notes",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "patient_address",
+          "label": "Address",
+          "required": false
+        },
+        {
+          "name": "patient_blood_type",
+          "label": "Blood Type",
+          "required": false
+        },
+        {
+          "name": "patient_dob",
+          "label": "Date of Birth",
+          "required": false
+        },
+        {
+          "name": "patient_email",
+          "label": "Email",
+          "required": false
+        },
+        {
+          "name": "patient_gender",
+          "label": "Gender",
+          "required": false
+        },
+        {
+          "name": "patient_id",
+          "label": "Patient",
+          "required": false
+        },
+        {
+          "name": "patient_identity_document_attachment",
+          "label": "ID Document Type",
+          "required": false
+        },
+        {
+          "name": "patient_identity_document_attachment_filename",
+          "label": "Attachment Filename",
+          "required": false
+        },
+        {
+          "name": "patient_identity_document_number",
+          "label": "ID Document Number",
+          "required": false
+        },
+        {
+          "name": "patient_identity_document_type",
+          "label": "ID Document Type",
+          "required": false
+        },
+        {
+          "name": "patient_image",
+          "label": "Patient Name",
+          "required": false
+        },
+        {
+          "name": "patient_name",
+          "label": "Patient Name",
+          "required": false
+        },
+        {
+          "name": "patient_phone",
+          "label": "Phone",
+          "required": false
+        },
+        {
+          "name": "patient_referred_by",
+          "label": "Referred By",
+          "required": false
+        },
+        {
+          "name": "state",
+          "label": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "module": "Billing",
+      "menuPath": "Billings",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-383",
+      "actionId": 383,
+      "actionRef": "action-383",
+      "columns": [
+        "Bill Number",
+        "Patient",
+        "IPD Reference",
+        "Total Amount",
+        "Status"
+      ],
+      "formFields": [
+        {
+          "name": "bill_no",
+          "label": "Bill Number",
+          "required": false
+        },
+        {
+          "name": "billing_line_ids",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "invoice_amount_due",
+          "label": "Invoice",
+          "required": false
+        },
+        {
+          "name": "invoice_amount_paid",
+          "label": "Invoice",
+          "required": false
+        },
+        {
+          "name": "invoice_amount_total",
+          "label": "Invoice",
+          "required": false
+        },
+        {
+          "name": "invoice_id",
+          "label": "Invoice",
+          "required": false
+        },
+        {
+          "name": "ipd_id",
+          "label": "IPD Reference",
+          "required": false
+        },
+        {
+          "name": "patient_id",
+          "label": "Patient",
+          "required": true
+        },
+        {
+          "name": "status",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "total_amount",
+          "label": "Invoice",
+          "required": false
+        }
+      ]
+    },
+    {
+      "module": "Ward Management",
+      "menuPath": "Dashboard card > Ward Management",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-381",
+      "actionId": 381,
+      "actionRef": "action-381",
+      "columns": [
+        "Ward Name",
+        "Ward Code",
+        "Ward Type",
+        "Floor",
+        "Total Beds"
+      ],
+      "formFields": [
+        {
+          "name": "bed_ids",
+          "label": "",
+          "required": false
+        },
+        {
+          "name": "floor",
+          "label": "Floor",
+          "required": false
+        },
+        {
+          "name": "name",
+          "label": "Ward Name",
+          "required": true
+        },
+        {
+          "name": "total_beds",
+          "label": "Floor",
+          "required": false
+        },
+        {
+          "name": "ward_code",
+          "label": "Ward Code",
+          "required": false
+        },
+        {
+          "name": "ward_type",
+          "label": "Ward Type",
+          "required": true
+        }
+      ]
+    },
+    {
+      "module": "Bed Management",
+      "menuPath": "Dashboard card > Bed Management",
+      "actionUrl": "https://team43.qaaerp.com/odoo/action-372/action-382",
+      "actionId": 382,
+      "actionRef": "action-382",
+      "columns": [
+        "Bed Number",
+        "Ward",
+        "Bed Type",
+        "Status",
+        "Bed Charge"
+      ],
+      "formFields": [
+        {
+          "name": "bed_number",
+          "label": "Bed Number",
+          "required": true
+        },
+        {
+          "name": "bed_type",
+          "label": "Bed Type",
+          "required": false
+        },
+        {
+          "name": "charge",
+          "label": "Bed Charge",
+          "required": false
+        },
+        {
+          "name": "notes",
+          "label": "Notes",
+          "required": false
+        },
+        {
+          "name": "status",
+          "label": "Status",
+          "required": false
+        },
+        {
+          "name": "ward_id",
+          "label": "Ward",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

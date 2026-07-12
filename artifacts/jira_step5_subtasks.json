@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-07-11T07:02:52.707Z",
+  "assigneeEmail": "prateek.gupta@thepsi.com",
+  "totalCases": 36,
+  "totalStoryLinks": 9,
+  "report": [
+    {
+      "storyKey": "KAN-4",
+      "requirementId": "REQ-PATIENTS-1",
+      "createdSubtaskKey": "KAN-22",
+      "caseCount": 4,
+      "transition": "Done"
+    },
+    {
+      "storyKey": "KAN-5",
+      "requirementId": "REQ-DOCTORS-1",
+      "createdSubtaskKey": "KAN-23",
+      "caseCount": 4,
+      "transition": "Done"
+    },
+    {
+      "storyKey": "KAN-6",
+      "requirementId": "REQ-APPOINTMENTS-1",
+      "createdSubtaskKey": "KAN-24",
+      "caseCount": 4,
+      "transition": "Done"
+    },
+    {
+      "storyKey": "KAN-7",
+      "requirementId": "REQ-PRESCRIPTIONS-1",
+      "createdSubtaskKey": "KAN-25",
+      "caseCount": 4,
+      "transition": "Done"
+    },
+    {
+      "storyKey": "KAN-8",
+      "requirementId": "REQ-LABREPORTS-1",
+      "createdSubtaskKey": "KAN-26",
+      "caseCount": 4,
+      "transition": "Done"
+    },
+    {
+      "storyKey": "KAN-9",
+      "requirementId": "REQ-IPD-1",
+      "createdSubtaskKey": "KAN-27",
+      "caseCount": 4,
+      "transition": "Done"
+    },
+    {
+      "storyKey": "KAN-10",
+      "requirementId": "REQ-BILLING-1",
+      "createdSubtaskKey": "KAN-28",
+      "caseCount": 4,
+      "transition": "Done"
+    },
+    {
+      "storyKey": "KAN-11",
+      "requirementId": "REQ-WARD-1",
+      "createdSubtaskKey": "KAN-29",
+      "caseCount": 4,
+      "transition": "Done"
+    },
+    {
+      "storyKey": "KAN-12",
+      "requirementId": "REQ-BED-1",
+      "createdSubtaskKey": "KAN-30",
+      "caseCount": 4,
+      "transition": "Done"
+    }
+  ]
+}

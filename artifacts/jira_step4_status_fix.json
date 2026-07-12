@@ -1,0 +1,115 @@
+{
+  "generatedAt": "2026-07-11T06:51:21.910Z",
+  "assigneeAccountId": "557058:90e432de-22d4-4ff6-a9a3-5111be91e864",
+  "assigneeDisplayName": "Prateek Gupta",
+  "report": [
+    {
+      "storyKey": "KAN-4",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-13",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-5",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-14",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-6",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-15",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-7",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-16",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-8",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-17",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-9",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-18",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-10",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-19",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-11",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-20",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    },
+    {
+      "storyKey": "KAN-12",
+      "storyAssigneeSet": true,
+      "storyTransition": null,
+      "subtasks": [
+        {
+          "key": "KAN-21",
+          "assigneeSet": true,
+          "transition": "Done"
+        }
+      ]
+    }
+  ]
+}

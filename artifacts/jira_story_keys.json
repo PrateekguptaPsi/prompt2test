@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-07-11T06:40:33.421Z",
+  "projectKey": "KAN",
+  "totalCreated": 9,
+  "created": [
+    {
+      "requirementId": "REQ-PATIENTS-1",
+      "module": "Patients",
+      "key": "KAN-4"
+    },
+    {
+      "requirementId": "REQ-DOCTORS-1",
+      "module": "Doctors",
+      "key": "KAN-5"
+    },
+    {
+      "requirementId": "REQ-APPOINTMENTS-1",
+      "module": "Appointments",
+      "key": "KAN-6"
+    },
+    {
+      "requirementId": "REQ-PRESCRIPTIONS-1",
+      "module": "Prescriptions",
+      "key": "KAN-7"
+    },
+    {
+      "requirementId": "REQ-LABREPORTS-1",
+      "module": "Lab Reports",
+      "key": "KAN-8"
+    },
+    {
+      "requirementId": "REQ-IPD-1",
+      "module": "IPD Details",
+      "key": "KAN-9"
+    },
+    {
+      "requirementId": "REQ-BILLING-1",
+      "module": "Billing",
+      "key": "KAN-10"
+    },
+    {
+      "requirementId": "REQ-WARD-1",
+      "module": "Ward Management",
+      "key": "KAN-11"
+    },
+    {
+      "requirementId": "REQ-BED-1",
+      "module": "Bed Management",
+      "key": "KAN-12"
+    }
+  ]
+}
